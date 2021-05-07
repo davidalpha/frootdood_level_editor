@@ -1,0 +1,67 @@
+[gd_scene load_steps=8 format=2]
+
+[ext_resource path="res://World.gd" type="Script" id=1]
+[ext_resource path="res://PlayerCamera.tscn" type="PackedScene" id=2]
+[ext_resource path="res://terrain_spatial.tres" type="Material" id=3]
+[ext_resource path="res://object_capsule.tscn" type="PackedScene" id=4]
+
+[sub_resource type="ProceduralSky" id=2]
+sky_curve = 1.01823
+sky_energy = 0.5
+sun_color = Color( 0.996078, 1, 0.909804, 1 )
+
+[sub_resource type="Environment" id=1]
+background_mode = 1
+background_sky = SubResource( 2 )
+background_color = Color( 1, 0.768627, 0.521569, 1 )
+ambient_light_color = Color( 0.980392, 0.933333, 1, 1 )
+ambient_light_energy = 0.8
+ambient_light_sky_contribution = 0.5
+fog_enabled = true
+fog_color = Color( 0.968627, 0.729412, 0.270588, 1 )
+auto_exposure_scale = 0.6
+ss_reflections_enabled = true
+ssao_enabled = true
+ssao_radius2 = 1.0
+dof_blur_far_distance = 130.0
+adjustment_enabled = true
+adjustment_saturation = 1.36
+
+[sub_resource type="PrismMesh" id=5]
+
+[node name="World" type="Spatial"]
+script = ExtResource( 1 )
+noise_period = 60
+noise_octaves = 3
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource( 1 )
+
+[node name="MeshInstance" type="MeshInstance" parent="WorldEnvironment"]
+mesh = SubResource( 5 )
+material/0 = ExtResource( 3 )
+
+[node name="Camera" parent="." instance=ExtResource( 2 )]
+
+[node name="capsule" parent="." instance=ExtResource( 4 )]
+
+[node name="DirectionalLight" type="DirectionalLight" parent="."]
+transform = Transform( 1, 0, 0, 0, 0.962337, -0.27186, 0, 0.27186, 0.962337, 0, 69.8267, 0 )
+shadow_enabled = true
+
+[node name="OmniLight2" type="OmniLight" parent="."]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 69.8267, 0 )
+visible = false
+shadow_enabled = true
+omni_range = 100.0
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="Label" type="Label" parent="CanvasLayer"]
+margin_right = 212.0
+margin_bottom = 14.0
+text = "PRESS Z TO TOGGLE MOUSELOOK / PRESS SPACE TO BOOST
+"
+__meta__ = {
+"_edit_use_anchors_": false
+}
