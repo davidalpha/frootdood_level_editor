@@ -2,9 +2,11 @@
 
 [resource]
 albedo_color = Color( 0.670588, 0.666667, 0.666667, 1 )
-metallic = 0.1
-roughness = 0.7
+metallic = 0.2
+metallic_specular = 0.0
 ao_enabled = true
 ao_light_affect = 0.5
 ao_on_uv2 = false
 ao_texture_channel = 0
+subsurf_scatter_enabled = true
+subsurf_scatter_strength = 0.0

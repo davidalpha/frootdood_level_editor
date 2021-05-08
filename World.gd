@@ -1,14 +1,19 @@
 extends Spatial
 
-export var noise_period = 20
-export var noise_octaves = 6
-
+export var noise_period = 64
+export var noise_octaves = 3
+export var noise_lacunarity = 2.0
+export var noise_seed = 1234
+export var noise_persistence = 0.5
 
 func _ready():
 
 	var noise = OpenSimplexNoise.new()
 	noise.period = noise_period
 	noise.octaves = noise_octaves
+	noise.lacunarity = noise_lacunarity
+	noise.seed = noise_seed
+	noise.persistence = noise_persistence
 	
 	var plane_mesh = PlaneMesh.new()
 	plane_mesh.size = Vector2(400,400)

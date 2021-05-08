@@ -1,18 +1,18 @@
-[gd_scene load_steps=8 format=2]
+[gd_scene load_steps=10 format=2]
 
 [ext_resource path="res://World.gd" type="Script" id=1]
 [ext_resource path="res://PlayerCamera.tscn" type="PackedScene" id=2]
 [ext_resource path="res://terrain_spatial.tres" type="Material" id=3]
 [ext_resource path="res://object_capsule.tscn" type="PackedScene" id=4]
 
-[sub_resource type="ProceduralSky" id=2]
+[sub_resource type="ProceduralSky" id=1]
 sky_curve = 1.01823
 sky_energy = 0.5
 sun_color = Color( 0.996078, 1, 0.909804, 1 )
 
-[sub_resource type="Environment" id=1]
+[sub_resource type="Environment" id=2]
 background_mode = 1
-background_sky = SubResource( 2 )
+background_sky = SubResource( 1 )
 background_color = Color( 1, 0.768627, 0.521569, 1 )
 ambient_light_color = Color( 0.980392, 0.933333, 1, 1 )
 ambient_light_energy = 0.8
@@ -27,18 +27,24 @@ dof_blur_far_distance = 130.0
 adjustment_enabled = true
 adjustment_saturation = 1.36
 
-[sub_resource type="PrismMesh" id=5]
+[sub_resource type="PrismMesh" id=3]
+
+[sub_resource type="PlaneMesh" id=4]
+
+[sub_resource type="SpatialMaterial" id=5]
+albedo_color = Color( 0.247059, 0.521569, 0.94902, 1 )
 
 [node name="World" type="Spatial"]
 script = ExtResource( 1 )
-noise_period = 60
-noise_octaves = 3
+noise_lacunarity = 4.0
+noise_seed = 999
+noise_persistence = 0.4
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
-environment = SubResource( 1 )
+environment = SubResource( 2 )
 
 [node name="MeshInstance" type="MeshInstance" parent="WorldEnvironment"]
-mesh = SubResource( 5 )
+mesh = SubResource( 3 )
 material/0 = ExtResource( 3 )
 
 [node name="Camera" parent="." instance=ExtResource( 2 )]
@@ -65,3 +71,9 @@ text = "PRESS Z TO TOGGLE MOUSELOOK / PRESS SPACE TO BOOST
 __meta__ = {
 "_edit_use_anchors_": false
 }
+
+[node name="MeshInstance" type="MeshInstance" parent="."]
+transform = Transform( 800, 0, 0, 0, 800, 0, 0, 0, 800, 0, 0, 0 )
+cast_shadow = 0
+mesh = SubResource( 4 )
+material/0 = SubResource( 5 )
