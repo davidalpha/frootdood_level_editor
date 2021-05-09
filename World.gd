@@ -47,7 +47,7 @@ func _ready():
 	
 	mesh_instance.mesh = surface_tool.commit()
 	mesh_instance.create_trimesh_collision()
-	mesh_instance.set_surface_material(0, load("res://terrain_spatial.tres"))
+	mesh_instance.set_surface_material(0, load("res://terrain_shader.tres"))
 	
 	add_child(mesh_instance)
 			
