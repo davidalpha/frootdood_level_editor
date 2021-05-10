@@ -42,9 +42,9 @@ albedo_color = Color( 0.247059, 0.521569, 0.94902, 1 )
 
 [node name="World" type="Spatial"]
 script = ExtResource( 1 )
-noise_lacunarity = 2.0
+noise_period = 20
+noise_lacunarity = 1.0
 noise_seed = 5342
-noise_persistence = 0.5
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
 environment = SubResource( 2 )
