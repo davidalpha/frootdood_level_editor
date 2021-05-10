@@ -1,63 +1,88 @@
 [gd_resource type="ShaderMaterial" load_steps=13 format=2]
 
-[ext_resource path="res://seamless-sand-textures.jpeg" type="Texture" id=1]
-
-[sub_resource type="VisualShaderNodeInput" id=9]
-input_name = "camera"
-
-[sub_resource type="VisualShaderNodeTransformVecMult" id=10]
-
-[sub_resource type="VisualShaderNodeVectorClamp" id=14]
-default_input_values = [ 0, Vector3( 0, 0, 0 ), 1, Vector3( 0, 0, 0 ), 2, Vector3( 0.8, 0.8, 0.8 ) ]
-
-[sub_resource type="VisualShaderNodeTexture" id=15]
-texture = ExtResource( 1 )
-
-[sub_resource type="VisualShaderNodeScalarOp" id=16]
-output_port_for_preview = 0
-operator = 2
+[ext_resource path="res://depositphotos_29634327-seamless-grass-texture.jpeg" type="Texture" id=1]
+[ext_resource path="res://depositphotos_118239344-Brown-rock-texture-closeup-of-pictures-in-a-geological-park..jpg" type="Texture" id=2]
 
 [sub_resource type="VisualShaderNodeInput" id=1]
+input_name = "camera"
+
+[sub_resource type="VisualShaderNodeTransformVecMult" id=2]
+
+[sub_resource type="VisualShaderNodeTextureUniformTriplanar" id=11]
+output_port_for_preview = 0
+uniform_name = "TextureUniformTriplanar2"
+texture_type = 1
+
+[sub_resource type="VisualShaderNodeTextureUniformTriplanar" id=12]
+uniform_name = "TextureUniformTriplanar"
+texture_type = 1
+
+[sub_resource type="VisualShaderNodeVectorFunc" id=13]
+
+[sub_resource type="VisualShaderNodeVectorFunc" id=14]
+function = 22
+
+[sub_resource type="VisualShaderNodeInput" id=5]
 input_name = "vertex"
 
-[sub_resource type="VisualShaderNodeVectorDecompose" id=4]
+[sub_resource type="VisualShaderNodeVectorDecompose" id=6]
 output_port_for_preview = 1
 
-[sub_resource type="VisualShaderNodeVectorInterp" id=5]
+[sub_resource type="VisualShaderNodeVectorInterp" id=7]
 output_port_for_preview = 0
 
-[sub_resource type="VisualShaderNodeColorConstant" id=6]
-constant = Color( 0.927742, 0.8291, 0.493296, 1 )
-
-[sub_resource type="VisualShaderNodeColorConstant" id=7]
-constant = Color( 0.372252, 0.329232, 0.135963, 1 )
-
-[sub_resource type="VisualShader" id=8]
+[sub_resource type="VisualShader" id=10]
 code = "shader_type spatial;
 render_mode specular_schlick_ggx;
 
-uniform sampler2D tex_frg_16;
+uniform sampler2D TextureUniformTriplanar : hint_albedo;
+uniform sampler2D TextureUniformTriplanar2 : hint_albedo;
 
 
+// TRIPLANAR FUNCTION GLOBAL CODE
+	vec4 triplanar_texture(sampler2D p_sampler, vec3 p_weights, vec3 p_triplanar_pos) {
+		vec4 samp = vec4(0.0);
+		samp += texture(p_sampler, p_triplanar_pos.xy) * p_weights.z;
+		samp += texture(p_sampler, p_triplanar_pos.xz) * p_weights.y;
+		samp += texture(p_sampler, p_triplanar_pos.zy * vec2(-1.0, 1.0)) * p_weights.x;
+		return samp;
+	}
+
+	uniform vec3 triplanar_scale = vec3(1.0, 1.0, 1.0);
+	uniform vec3 triplanar_offset;
+	uniform float triplanar_sharpness = 0.5;
+
+	varying vec3 triplanar_power_normal;
+	varying vec3 triplanar_pos;
 
 void vertex() {
 // Output:0
 
+	// TRIPLANAR FUNCTION VERTEX CODE
+		triplanar_power_normal = pow(abs(NORMAL), vec3(triplanar_sharpness));
+		triplanar_power_normal /= dot(triplanar_power_normal, vec3(1.0));
+		triplanar_pos = VERTEX * triplanar_scale + triplanar_offset;
+		triplanar_pos *= vec3(1.0, -1.0, 1.0);
 }
 
 void fragment() {
-// Texture:16
-	vec4 tex_frg_16_read = texture(tex_frg_16, UV.xy);
-	vec3 n_out16p0 = tex_frg_16_read.rgb;
-	float n_out16p1 = tex_frg_16_read.a;
+// TextureUniformTriplanar:21
+	vec3 n_out21p0;
+	float n_out21p1;
+	{
+		vec4 n_tex_read = triplanar_texture( TextureUniformTriplanar, triplanar_power_normal, triplanar_pos );
+		n_out21p0 = n_tex_read.rgb;
+		n_out21p1 = n_tex_read.a;
+	}
 
-// Color:8
-	vec3 n_out8p0 = vec3(0.927742, 0.829100, 0.493296);
-	float n_out8p1 = 1.000000;
-
-// Color:9
-	vec3 n_out9p0 = vec3(0.372252, 0.329232, 0.135963);
-	float n_out9p1 = 1.000000;
+// TextureUniformTriplanar:20
+	vec3 n_out20p0;
+	float n_out20p1;
+	{
+		vec4 n_tex_read = triplanar_texture( TextureUniformTriplanar2, triplanar_power_normal, triplanar_pos );
+		n_out20p0 = n_tex_read.rgb;
+		n_out20p1 = n_tex_read.a;
+	}
 
 // Input:10
 	mat4 n_out10p0 = CAMERA_MATRIX;
@@ -73,19 +98,14 @@ void fragment() {
 	float n_out6p1 = n_out11p0.y;
 	float n_out6p2 = n_out11p0.z;
 
+// VectorFunc:22
+	vec3 n_out22p0 = normalize(vec3(n_out6p1));
+
 // VectorMix:7
-	vec3 n_out7p0 = mix(n_out8p0, n_out9p0, vec3(n_out6p1));
-
-// VectorClamp:15
-	vec3 n_in15p1 = vec3(0.00000, 0.00000, 0.00000);
-	vec3 n_in15p2 = vec3(0.80000, 0.80000, 0.80000);
-	vec3 n_out15p0 = clamp(n_out7p0, n_in15p1, n_in15p2);
-
-// ScalarOp:17
-	float n_out17p0 = dot(n_out16p0, vec3(0.333333, 0.333333, 0.333333)) * dot(n_out15p0, vec3(0.333333, 0.333333, 0.333333));
+	vec3 n_out7p0 = mix(n_out21p0, n_out20p0, n_out22p0);
 
 // Output:0
-	ALBEDO = vec3(n_out17p0);
+	ALBEDO = n_out7p0;
 
 }
 
@@ -94,29 +114,32 @@ void light() {
 
 }
 "
-graph_offset = Vector2( 626.774, -229.802 )
-nodes/fragment/0/position = Vector2( 2500, -20 )
-nodes/fragment/3/node = SubResource( 1 )
+graph_offset = Vector2( 974.044, -132.545 )
+nodes/fragment/0/position = Vector2( 2920, -460 )
+nodes/fragment/3/node = SubResource( 5 )
 nodes/fragment/3/position = Vector2( 280, 280 )
-nodes/fragment/6/node = SubResource( 4 )
-nodes/fragment/6/position = Vector2( 1120, 280 )
-nodes/fragment/7/node = SubResource( 5 )
-nodes/fragment/7/position = Vector2( 1740, 60 )
-nodes/fragment/8/node = SubResource( 6 )
-nodes/fragment/8/position = Vector2( 1200, -80 )
-nodes/fragment/9/node = SubResource( 7 )
-nodes/fragment/9/position = Vector2( 1200, 100 )
-nodes/fragment/10/node = SubResource( 9 )
+nodes/fragment/6/node = SubResource( 6 )
+nodes/fragment/6/position = Vector2( 1320, -40 )
+nodes/fragment/7/node = SubResource( 7 )
+nodes/fragment/7/position = Vector2( 2220, -460 )
+nodes/fragment/10/node = SubResource( 1 )
 nodes/fragment/10/position = Vector2( 280, 100 )
-nodes/fragment/11/node = SubResource( 10 )
+nodes/fragment/11/node = SubResource( 2 )
 nodes/fragment/11/position = Vector2( 660, 80 )
-nodes/fragment/15/node = SubResource( 14 )
-nodes/fragment/15/position = Vector2( 2080, 140 )
-nodes/fragment/16/node = SubResource( 15 )
-nodes/fragment/16/position = Vector2( 1620, -420 )
-nodes/fragment/17/node = SubResource( 16 )
-nodes/fragment/17/position = Vector2( 2120, -320 )
-nodes/fragment/connections = PoolIntArray( 8, 0, 7, 0, 3, 0, 11, 1, 10, 0, 11, 0, 11, 0, 6, 0, 9, 0, 7, 1, 7, 0, 15, 0, 6, 1, 7, 2, 15, 0, 17, 1, 16, 0, 17, 0, 17, 0, 0, 0 )
+nodes/fragment/20/node = SubResource( 11 )
+nodes/fragment/20/position = Vector2( 860, -480 )
+nodes/fragment/21/node = SubResource( 12 )
+nodes/fragment/21/position = Vector2( 1300, -880 )
+nodes/fragment/22/node = SubResource( 13 )
+nodes/fragment/22/position = Vector2( 1800, 140 )
+nodes/fragment/23/node = SubResource( 14 )
+nodes/fragment/23/position = Vector2( 2340, 0 )
+nodes/fragment/connections = PoolIntArray( 3, 0, 11, 1, 10, 0, 11, 0, 11, 0, 6, 0, 20, 0, 7, 1, 21, 0, 7, 0, 7, 0, 0, 0, 6, 1, 22, 0, 22, 0, 7, 2, 6, 1, 23, 0 )
 
 [resource]
-shader = SubResource( 8 )
+shader = SubResource( 10 )
+shader_param/triplanar_scale = Vector3( 1, 1, 1 )
+shader_param/triplanar_offset = null
+shader_param/triplanar_sharpness = 0.5
+shader_param/TextureUniformTriplanar = ExtResource( 2 )
+shader_param/TextureUniformTriplanar2 = ExtResource( 1 )

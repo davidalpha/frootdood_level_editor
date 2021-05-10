@@ -5,6 +5,9 @@ export var noise_octaves = 3
 export var noise_lacunarity = 2.0
 export var noise_seed = 1234
 export var noise_persistence = 0.5
+export var size_depth = 400
+export var size_width = 400
+export var subdivide = 400
 
 func _ready():
 
@@ -16,9 +19,9 @@ func _ready():
 	noise.persistence = noise_persistence
 	
 	var plane_mesh = PlaneMesh.new()
-	plane_mesh.size = Vector2(400,400)
-	plane_mesh.subdivide_depth = 400
-	plane_mesh.subdivide_width = 400
+	plane_mesh.size = Vector2(size_depth,size_width)
+	plane_mesh.subdivide_depth = subdivide
+	plane_mesh.subdivide_width = subdivide
 	
 	var surface_tool = SurfaceTool.new()
 	surface_tool.create_from(plane_mesh, 0)	
