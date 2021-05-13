@@ -37,14 +37,13 @@ roughness = 0.5
 
 [sub_resource type="PlaneMesh" id=5]
 
-[sub_resource type="SpatialMaterial" id=6]
-albedo_color = Color( 0.247059, 0.521569, 0.94902, 1 )
+[sub_resource type="ShaderMaterial" id=6]
 
 [node name="World" type="Spatial"]
 script = ExtResource( 1 )
-noise_period = 20
-noise_lacunarity = 1.0
-noise_seed = 5342
+noise_period = 90
+noise_octaves = 6
+noise_seed = 637216387
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
 environment = SubResource( 2 )
