@@ -5,16 +5,16 @@
 [ext_resource path="res://scripts/World.gd" type="Script" id=3]
 [ext_resource path="res://shaders/OceanShader.tres" type="Material" id=4]
 
-[sub_resource type="ProceduralSky" id=6]
+[sub_resource type="ProceduralSky" id=1]
 
-[sub_resource type="Environment" id=7]
+[sub_resource type="Environment" id=2]
 background_mode = 2
-background_sky = SubResource( 6 )
+background_sky = SubResource( 1 )
 background_energy = 1.82
 fog_enabled = true
 dof_blur_far_distance = 200.0
 
-[sub_resource type="PlaneMesh" id=5]
+[sub_resource type="PlaneMesh" id=3]
 material = ExtResource( 4 )
 size = Vector2( 400, 400 )
 subdivide_width = 400
@@ -26,7 +26,7 @@ noise_seed = 24091985
 subdivide = 200
 
 [node name="WorldEnvironment2" type="WorldEnvironment" parent="."]
-environment = SubResource( 7 )
+environment = SubResource( 2 )
 
 [node name="Camera" parent="." instance=ExtResource( 1 )]
 
@@ -47,5 +47,5 @@ omni_range = 100.0
 [node name="sea" type="MeshInstance" parent="."]
 transform = Transform( 1, 0, 0, 0, 0.5, 0, 0, 0, 1, 0.0477982, -0.919964, 0.0456676 )
 cast_shadow = 0
-mesh = SubResource( 5 )
+mesh = SubResource( 3 )
 material/0 = null
