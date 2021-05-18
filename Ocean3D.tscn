@@ -1,0 +1,16 @@
+[gd_scene load_steps=4 format=2]
+
+[ext_resource path="res://OceanShader.tres" type="Material" id=3]
+[ext_resource path="res://Projected-grid.gd" type="Script" id=4]
+[ext_resource path="res://Panel.tscn" type="PackedScene" id=5]
+
+[node name="Ocean" type="Node"]
+
+[node name="Ocean" type="ImmediateGeometry" parent="."]
+material_override = ExtResource( 3 )
+script = ExtResource( 4 )
+wavelength = 50.0
+amplitude = 0.19
+noise_amplitude = 0.286
+
+[node name="Panel" parent="." instance=ExtResource( 5 )]
