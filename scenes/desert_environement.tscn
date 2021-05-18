@@ -1,0 +1,24 @@
+[gd_scene load_steps=3 format=2]
+
+[sub_resource type="ProceduralSky" id=4]
+
+[sub_resource type="Environment" id=3]
+background_mode = 3
+background_sky = SubResource( 4 )
+background_color = Color( 1, 0.768627, 0.521569, 0.321569 )
+background_energy = 0.0
+ambient_light_color = Color( 0.980392, 0.933333, 1, 1 )
+ambient_light_energy = 0.8
+ambient_light_sky_contribution = 0.5
+fog_enabled = true
+fog_color = Color( 0.968627, 0.729412, 0.270588, 0.345098 )
+fog_sun_color = Color( 1, 1, 1, 1 )
+auto_exposure_scale = 0.6
+ss_reflections_enabled = true
+ssao_enabled = true
+ssao_radius2 = 1.0
+dof_blur_far_distance = 130.0
+adjustment_saturation = 1.36
+
+[node name="WorldEnvironment" type="WorldEnvironment"]
+environment = SubResource( 3 )
