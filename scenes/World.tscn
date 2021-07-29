@@ -1,33 +1,31 @@
-[gd_scene load_steps=9 format=2]
+[gd_scene load_steps=11 format=2]
 
 [ext_resource path="res://scenes/PlayerCamera.tscn" type="PackedScene" id=1]
 [ext_resource path="res://scenes/object_capsule.tscn" type="PackedScene" id=2]
 [ext_resource path="res://scripts/World.gd" type="Script" id=3]
 [ext_resource path="res://shaders/OceanShader.tres" type="Material" id=4]
 [ext_resource path="res://assets/height_map.png" type="Image" id=5]
+[ext_resource path="res://scripts/ImmediateGeometry.gd" type="Script" id=6]
+[ext_resource path="res://shaders/sea_Shader.tres" type="Material" id=7]
 
 [sub_resource type="ProceduralSky" id=1]
 
 [sub_resource type="Environment" id=2]
 background_mode = 2
 background_sky = SubResource( 1 )
-background_energy = 1.82
-fog_enabled = true
-dof_blur_far_distance = 200.0
 
 [sub_resource type="PlaneMesh" id=3]
-material = ExtResource( 4 )
+material = ExtResource( 7 )
 size = Vector2( 400, 400 )
-subdivide_width = 400
-subdivide_depth = 400
+subdivide_width = 100
+subdivide_depth = 100
 
 [node name="World" type="Spatial"]
 script = ExtResource( 3 )
 noise_seed = 24091985
-subdivide = 200
 height_map = ExtResource( 5 )
 
-[node name="WorldEnvironment2" type="WorldEnvironment" parent="."]
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
 environment = SubResource( 2 )
 
 [node name="Camera" parent="." instance=ExtResource( 1 )]
@@ -38,16 +36,32 @@ environment = SubResource( 2 )
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 57.6277, -1.02362, 0.0581489 )
 
 [node name="DirectionalLight" type="DirectionalLight" parent="."]
-transform = Transform( 1, 0, 0, 0, 0.962337, -0.27186, 0, 0.27186, 0.962337, 0, 69.8267, 0 )
+transform = Transform( 1, 0, 0, 0, 0.687683, 0.726011, 0, -0.726011, 0.687683, 0, 109.037, 0 )
+light_color = Color( 1, 0.933333, 0.858824, 1 )
+directional_shadow_mode = 1
 
 [node name="OmniLight2" type="OmniLight" parent="."]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 51.6869, 0 )
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -54.8759, 30.9113, 0 )
+visible = false
+light_energy = 2.0
 light_bake_mode = 2
 shadow_enabled = true
 omni_range = 100.0
 
 [node name="sea" type="MeshInstance" parent="."]
 transform = Transform( 1, 0, 0, 0, 0.5, 0, 0, 0, 1, 0.0477982, -0.919964, 0.0456676 )
+visible = false
 cast_shadow = 0
 mesh = SubResource( 3 )
 material/0 = null
+
+[node name="ImmediateGeometry" type="ImmediateGeometry" parent="."]
+material_override = ExtResource( 4 )
+script = ExtResource( 6 )
+wavelength = 20.0
+steepness = 0.1
+amplitude = 0.1
+noise_amplitude = 0.1
+noise_frequency = 0.1
+noise_speed = 0.1
+seed_value = 100

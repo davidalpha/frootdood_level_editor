@@ -7,8 +7,8 @@ export var noise_seed = 1234
 export var noise_persistence = 0.5
 export var size_depth = 400
 export var size_width = 400
-export var subdivide = 400
-export var steepness = 100
+export var subdivide = 100
+export var steepness = 30
 export var height_map : Image
 
 
@@ -40,7 +40,8 @@ func _ready():
 		var vertex = data_tool.get_vertex(i)
 		var pixel_x = int(vertex.x+ 200)/2 
 		var pixel_y = int(vertex.z+ 200)/2
-		vertex.y = height_map.get_pixel(pixel_x, pixel_y).r * steepness
+		vertex.y = (height_map.get_pixel(pixel_x, pixel_y).r * steepness) - 10
+		
 		
 		data_tool.set_vertex(i, vertex)
 		
