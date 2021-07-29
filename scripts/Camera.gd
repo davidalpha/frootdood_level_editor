@@ -5,7 +5,7 @@ const MOUSE_SENSITIVITY = 0.002
 
 
 # The camera movement speed (tweakable using the mouse wheel)
-var move_speed := 0.5
+var move_speed := 3
 
 # Stores where the camera is wanting to go (based on pressed keys and speed modifier)
 var motion := Vector3()

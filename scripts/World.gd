@@ -8,10 +8,14 @@ export var noise_persistence = 0.5
 export var size_depth = 400
 export var size_width = 400
 export var subdivide = 400
-export var steepness = 20
+export var steepness = 2
+export var height_map : Image
 
 
 func _ready():
+	var height_map = Image.new()
+	height_map.load("res://assets/height_map.png")
+	height_map.lock()
 
 	var noise = OpenSimplexNoise.new()
 	noise.period = noise_period
@@ -36,7 +40,9 @@ func _ready():
 	
 	for i in range (data_tool.get_vertex_count()):
 		var vertex = data_tool.get_vertex(i)
-		vertex.y = noise.get_noise_3d(vertex.x, vertex.y, vertex.z) * steepness
+		var pixel_x = int(vertex.x+ 200)/2 
+		var pixel_y = int(vertex.z+ 200)/2
+		vertex.y = height_map.get_pixel(pixel_x, pixel_y).r * steepness
 		
 		data_tool.set_vertex(i, vertex)
 		
