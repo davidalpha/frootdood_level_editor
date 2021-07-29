@@ -8,21 +8,19 @@ export var noise_persistence = 0.5
 export var size_depth = 400
 export var size_width = 400
 export var subdivide = 400
-export var steepness = 2
+export var steepness = 100
 export var height_map : Image
 
 
 func _ready():
-	var height_map = Image.new()
-	height_map.load("res://assets/height_map.png")
 	height_map.lock()
 
-	var noise = OpenSimplexNoise.new()
-	noise.period = noise_period
-	noise.octaves = noise_octaves
-	noise.lacunarity = noise_lacunarity
-	noise.seed = noise_seed
-	noise.persistence = noise_persistence
+#	var noise = OpenSimplexNoise.new()
+#	noise.period = noise_period
+#	noise.octaves = noise_octaves
+#	noise.lacunarity = noise_lacunarity
+#	noise.seed = noise_seed
+#	noise.persistence = noise_persistence
 	
 	var plane_mesh = PlaneMesh.new()
 	plane_mesh.size = Vector2(size_depth,size_width)
