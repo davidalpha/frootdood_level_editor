@@ -152,9 +152,9 @@ __meta__ = {
 anchor_right = 1.0
 anchor_bottom = 1.0
 margin_left = 4.0
-margin_top = 24.0
-margin_right = -243.0
-margin_bottom = -114.0
+margin_top = 32.0
+margin_right = -4.0
+margin_bottom = -4.0
 __meta__ = {
 "_edit_group_": true,
 "_edit_lock_": true
@@ -193,10 +193,11 @@ __meta__ = {
 }
 
 [node name="Critters" type="Tabs" parent="UI/Objects/TabContainer"]
+visible = false
 anchor_right = 1.0
 anchor_bottom = 1.0
 margin_left = 4.0
-margin_top = 24.0
+margin_top = 32.0
 margin_right = -4.0
 margin_bottom = -4.0
 __meta__ = {
@@ -265,6 +266,7 @@ margin_right = 53.0
 margin_bottom = 48.0
 text = "delete"
 align = 0
+
 [connection signal="body_entered" from="Ocean/Area" to="capsule" method="_on_Area_body_entered"]
 [connection signal="pressed" from="UI/Hide_editor" to="UI" method="_on_Hide_editor_pressed"]
 [connection signal="pressed" from="UI/Objects/TabContainer/Terrain/ScrollContainer/VBoxContainer/HBoxContainer/Rock1" to="UI" method="_on_Rock1_pressed"]
