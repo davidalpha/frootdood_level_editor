@@ -1,3 +1,4 @@
+tool
 extends Spatial
 
 export var noise_period = 64
@@ -10,6 +11,9 @@ export var size_width = 400
 export var subdivide = 100
 export var steepness = 30
 export var height_map : Image
+
+var amount_trees = 100
+var max_dist = 1000.0
 
 
 func _ready():
@@ -61,4 +65,6 @@ func _ready():
 	mesh_instance.set_surface_material(0, load("res://shaders/terrain_shader.tres"))
 	
 	add_child(mesh_instance)
+	
+
 			

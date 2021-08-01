@@ -131,13 +131,13 @@ func get_displace(position):
 		amp = i['amplitude']
 		if amp == 0.0: continue
 		
-		dir = Vector2(i['wind_directionX'], i['wind_directionY'])
+		dir = Vector3(i['wind_directionX'], i['wind_directionY'], 0.0)
 		w = i['frequency']
 		steep = i['steepness'] / (w*amp)
 		phase = 2.0 * w
-		
-		var W = position.dot(w*dir) + phase * OS.get_ticks_msec()/1000.0 * speed
-		
+
+		var W = position.dot(w*dir) + phase * OS.get_ticks_msec()/1000.0 * (speed/10)
+
 		new_p.x += steep*amp * dir.x * cos(W)
 		new_p.z += steep*amp * dir.y * cos(W)
 		new_p.y += amp * sin(W)
@@ -173,3 +173,4 @@ func update_waves():
 	waves_in_tex.create_from_image(img, 0)
 	
 	material_override.set_shader_param('waves', waves_in_tex)
+
