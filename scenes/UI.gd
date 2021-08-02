@@ -38,4 +38,5 @@ func _process(delta: float) -> void:
 func _on_Rocks_pressed():
 	object_selected = "rocks"
 
-
+func _on_Balls_pressed():
+	object_selected = "balls"
