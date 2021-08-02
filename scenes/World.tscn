@@ -257,7 +257,6 @@ margin_right = 53.0
 margin_bottom = 48.0
 text = "delete"
 align = 0
-
 [connection signal="body_entered" from="Ocean/Area" to="capsule" method="_on_Area_body_entered"]
 [connection signal="pressed" from="UI/Hide_editor" to="UI" method="_on_Hide_editor_pressed"]
 [connection signal="pressed" from="UI/Objects/TabContainer/Terrain/ScrollContainer/VBoxContainer/HBoxContainer/Rocks" to="UI" method="_on_Rocks_pressed"]

@@ -41,3 +41,19 @@ func _input(event):
 					camera.add_child(ball_instance)
 					ball_instance.look_at(intersection['position'], Vector3.UP)
 			
+
+	if event is InputEventMouseButton and event.pressed and event.button_index == 2:
+		var UI = get_node("/root/World/UI")
+		var mode = UI.mode
+		if mode == "edit":
+			var space_state = get_world().direct_space_state
+			var camera = get_node("/root/World/CameraScene")
+			var from = camera.project_ray_origin(event.position)
+			var to = from + camera.project_ray_normal(event.position) * ray_length
+			var intersection = space_state.intersect_ray(from, to)
+			if intersection:
+				var object_hit = intersection['collider']
+				
+				if object_hit.get_parent().name != "world_map":
+					object_hit.get_parent().queue_free()
+				 
