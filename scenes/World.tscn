@@ -41,7 +41,7 @@ height_map = ExtResource( 5 )
 environment = SubResource( 2 )
 
 [node name="capsule" parent="." instance=ExtResource( 2 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 1.72439, 15.8469, 0.362688 )
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 61.7828, 37.9903, -21.0623 )
 script = ExtResource( 8 )
 
 [node name="DirectionalLight" type="DirectionalLight" parent="."]
@@ -84,7 +84,8 @@ shape = SubResource( 4 )
 script = ExtResource( 9 )
 
 [node name="CameraScene" parent="." instance=ExtResource( 1 )]
-transform = Transform( -0.182664, -0.521026, 0.833766, 0.00118152, 0.847917, 0.530128, -0.983175, 0.0978203, -0.154268, 0, 42.8855, -40.4128 )
+transform = Transform( -0.941329, 0.179856, -0.285573, 0.00118152, 0.847917, 0.530128, 0.337489, 0.498687, -0.798381, 54.1695, 42.8855, -40.4128 )
+fov = 106.62
 
 [node name="UI" type="Control" parent="."]
 margin_right = 1022.0
@@ -165,26 +166,17 @@ __meta__ = {
 }
 
 [node name="VBoxContainer" type="VBoxContainer" parent="UI/Objects/TabContainer/Terrain/ScrollContainer"]
-margin_right = 98.0
+margin_right = 49.0
 margin_bottom = 20.0
 
 [node name="HBoxContainer" type="HBoxContainer" parent="UI/Objects/TabContainer/Terrain/ScrollContainer/VBoxContainer"]
-margin_right = 98.0
+margin_right = 49.0
 margin_bottom = 20.0
 
-[node name="Rock1" type="Button" parent="UI/Objects/TabContainer/Terrain/ScrollContainer/VBoxContainer/HBoxContainer"]
-margin_right = 47.0
+[node name="Rocks" type="Button" parent="UI/Objects/TabContainer/Terrain/ScrollContainer/VBoxContainer/HBoxContainer"]
+margin_right = 49.0
 margin_bottom = 20.0
-text = "rock1"
-
-[node name="Rock2" type="Button" parent="UI/Objects/TabContainer/Terrain/ScrollContainer/VBoxContainer/HBoxContainer"]
-margin_left = 51.0
-margin_right = 98.0
-margin_bottom = 20.0
-text = "rock2"
-__meta__ = {
-"_edit_use_anchors_": false
-}
+text = "Rocks"
 
 [node name="Critters" type="Tabs" parent="UI/Objects/TabContainer"]
 visible = false
@@ -260,9 +252,7 @@ margin_right = 53.0
 margin_bottom = 48.0
 text = "delete"
 align = 0
-
 [connection signal="body_entered" from="Ocean/Area" to="capsule" method="_on_Area_body_entered"]
 [connection signal="pressed" from="UI/Hide_editor" to="UI" method="_on_Hide_editor_pressed"]
-[connection signal="pressed" from="UI/Objects/TabContainer/Terrain/ScrollContainer/VBoxContainer/HBoxContainer/Rock1" to="UI" method="_on_Rock1_pressed"]
-[connection signal="pressed" from="UI/Objects/TabContainer/Terrain/ScrollContainer/VBoxContainer/HBoxContainer/Rock2" to="UI" method="_on_Rock2_pressed"]
+[connection signal="pressed" from="UI/Objects/TabContainer/Terrain/ScrollContainer/VBoxContainer/HBoxContainer/Rocks" to="UI" method="_on_Rocks_pressed"]
 [connection signal="pressed" from="UI/Tools/ScrollContainer/VBoxContainer/edit" to="UI" method="_on_edit_pressed"]

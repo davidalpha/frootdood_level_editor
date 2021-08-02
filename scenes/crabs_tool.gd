@@ -25,7 +25,7 @@ func _input(event):
 				
 				
 				object_type = UI.object_selected
-				if object_type == "rock1":
+				if object_type == "rocks":
 					rocks_arr.shuffle()
 					var item = rocks_arr[0]
 					var new_meshinstance = item.instance()
@@ -34,10 +34,3 @@ func _input(event):
 					new_meshinstance.transform.basis = new_meshinstance.transform.basis.scaled(Vector3(rand_range(.5, 1.5),rand_range(.5, 1.5),rand_range(.5, 1.5)))
 					add_child(new_meshinstance)
 
-				if object_type == "rock2":
-					print("DEZE OPRUIMEN")
-					var new_meshinstance = rock2.instance()
-					new_meshinstance.transform.origin = Vector3(placement)
-					new_meshinstance.transform.basis = new_meshinstance.transform.basis.rotated(Vector3(0.0,1.0,0.0), (PI*rand_range(0,2)))
-					new_meshinstance.transform.basis = new_meshinstance.transform.basis.scaled(Vector3(rand_range(.5, 1.5),rand_range(.5, 1.5),rand_range(.5, 1.5)))
-					add_child(new_meshinstance)	

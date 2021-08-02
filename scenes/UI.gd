@@ -35,9 +35,7 @@ func _process(delta: float) -> void:
 		_on_edit_pressed()
 
 
-func _on_Rock1_pressed():
-	object_selected = "rock1"
+func _on_Rocks_pressed():
+	object_selected = "rocks"
 
 
-func _on_Rock2_pressed():
-	object_selected = "rock2"
