@@ -9,25 +9,22 @@ var object_selected
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	pass # Replace with function body.
+	pass
 
 func _on_Hide_editor_pressed():
 	$Objects.visible = !$Objects.visible
-	$Tools.visible = !$Tools.visible
-		
+	$Tools.visible = !$Tools.visible	
 
 func _on_edit_pressed():
 	if mode == "edit":
 		mode = "UI"
 		$Objects.visible = true
 		$Tools.visible = true
-		$Hide_editor.visible = true
 		$Mode_container/Mode_label.text = ""
 	else:
 		mode = "edit"
 		$Objects.visible = false
 		$Tools.visible = false
-		$Hide_editor.visible = false
 		$Mode_container/Mode_label.text = mode + " mode (press B to disable)"
 
 func _process(delta: float) -> void:
@@ -40,3 +37,24 @@ func _on_Rocks_pressed():
 
 func _on_Balls_pressed():
 	object_selected = "balls"
+
+
+func _on_save_pressed():
+	var terrain = get_node("/root/level_editor/terrain")
+	terrain.save_scene()
+
+
+func _on_load_pressed():
+	$Levels.popup()
+	
+
+
+func _on_Levels_file_selected(path):
+	var terrain = get_node("/root/level_editor/terrain")
+	terrain.free()
+	print(path)
+	var loaded_level = load(path);
+	var level = loaded_level.instance();
+	print(loaded_level)
+	get_node("/root/level_editor/").add_child(level);
+	print(level)

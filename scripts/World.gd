@@ -12,8 +12,6 @@ export var subdivide = 100
 export var steepness = 30
 export var height_map : Image
 
-var amount_trees = 100
-var max_dist = 1000.0
 
 
 func _ready():
@@ -42,8 +40,8 @@ func _ready():
 	
 	for i in range (data_tool.get_vertex_count()):
 		var vertex = data_tool.get_vertex(i)
-		var pixel_x = int(vertex.x+ 200)/2 
-		var pixel_y = int(vertex.z+ 200)/2
+		var pixel_x = int((vertex.x+ 199)/2)
+		var pixel_y = int((vertex.z+ 199)/2)
 		vertex.y = (height_map.get_pixel(pixel_x, pixel_y).r * steepness) - 10
 		
 		
@@ -66,5 +64,12 @@ func _ready():
 	mesh_instance.name = "world_map"
 	add_child(mesh_instance)
 	
-
-			
+	
+	
+func save_scene():
+	var packed_scene = PackedScene.new()
+	packed_scene.pack(get_node("/root/level_editor/terrain"))
+	#packed_scene.pack(get_tree().get_current_scene())
+	var timestamp = str(OS.get_unix_time())
+	ResourceSaver.save(("res://saved_levels/level" + timestamp + ".tscn"), packed_scene)
+		

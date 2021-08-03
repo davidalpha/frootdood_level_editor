@@ -15,7 +15,7 @@ _global_script_class_icons={
 
 [application]
 
-config/name="3dlandschap"
+config/name="frootdood_level_editor"
 run/main_scene="res://scenes/World.tscn"
 
 [input]
