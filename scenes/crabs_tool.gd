@@ -3,9 +3,9 @@ extends Spatial
 
 const ray_length = 1000
 var object_type = "rock1"
-var rock1 = preload("res://game_objects/rock1.tscn")
-var rock2 = preload("res://game_objects/rock2.tscn")
-var rock3 = preload("res://game_objects/rock3.tscn")
+var rock1 = preload("res://scenes/static_objects/rock1.tscn")
+var rock2 = preload("res://scenes/static_objects/rock2.tscn")
+var rock3 = preload("res://scenes/static_objects/rock3.tscn")
 var ball  = preload("res://game_objects/ball.tscn")
 var rocks_arr = [rock1, rock2, rock3]
 

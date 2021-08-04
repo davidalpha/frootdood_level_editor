@@ -1,0 +1,909 @@
+[gd_scene load_steps=6 format=2]
+
+[ext_resource path="res://assets/depthmap.png" type="Image" id=1]
+[ext_resource path="res://scenes/static_objects/rock3.tscn" type="PackedScene" id=2]
+[ext_resource path="res://scenes/static_objects/rock2.tscn" type="PackedScene" id=3]
+[ext_resource path="res://scenes/static_objects/rock1.tscn" type="PackedScene" id=4]
+[ext_resource path="res://scripts/World.gd" type="Script" id=5]
+
+[node name="terrain" type="Spatial"]
+script = ExtResource( 5 )
+noise_seed = 24091985
+height_map = ExtResource( 1 )
+
+[node name="rock2" parent="." instance=ExtResource( 3 )]
+transform = Transform( 1.34205, 0, -0.178333, 0, 1.41881, 0, 0.147599, 0, 1.11076, 46.0193, 14.4732, -3.18471 )
+
+[node name="rock1" parent="." instance=ExtResource( 4 )]
+transform = Transform( 0.618164, 0, -0.45576, 0, 1.0395, 0, 0.415493, 0, 0.563548, 48.2589, -0.496213, -12.2157 )
+
+[node name="@rock2@88" parent="." instance=ExtResource( 3 )]
+transform = Transform( 0.596499, 0, 0.627389, 0, 0.527711, 0, -0.984577, 0, 0.9361, 48.4537, -1.79816, -6.08079 )
+
+[node name="@rock1@89" parent="." instance=ExtResource( 4 )]
+transform = Transform( 0.230738, 0, 1.37143, 0, 1.00073, 0, -0.842042, 0, 0.14167, 47.659, 3.51324, -7.50538 )
+
+[node name="@rock1@90" parent="." instance=ExtResource( 4 )]
+transform = Transform( -0.722411, 0, 0.191166, 0, 0.891241, 0, -0.280721, 0, -1.06083, 47.4124, 5.16143, -4.86566 )
+
+[node name="rock3" parent="." instance=ExtResource( 2 )]
+transform = Transform( -0.591814, 0, 0.196997, 0, 0.781873, 0, -0.223951, 0, -0.672787, 46.4097, 11.8633, -7.97342 )
+
+[node name="@rock2@91" parent="." instance=ExtResource( 3 )]
+transform = Transform( -1.04841, 0, 0.617093, 0, 0.913326, 0, -0.258557, 0, -0.439275, 45.8075, 15.8885, -7.27933 )
+
+[node name="@rock3@92" parent="." instance=ExtResource( 2 )]
+transform = Transform( -0.76607, 0, 1.09316, 0, 0.510764, 0, -0.972207, 0, -0.681307, 46.4133, 11.8395, -4.16923 )
+
+[node name="@rock2@93" parent="." instance=ExtResource( 3 )]
+transform = Transform( -0.0475601, 0, 1.24472, 0, 0.627717, 0, -1.28588, 0, -0.0491327, 47.0823, 7.3681, -7.31478 )
+
+[node name="@rock2@94" parent="." instance=ExtResource( 3 )]
+transform = Transform( -0.196239, 0, 0.900781, 0, 1.29065, 0, -0.693309, 0, -0.151041, 36.8492, -0.0562115, 0.668383 )
+
+[node name="@rock1@95" parent="." instance=ExtResource( 4 )]
+transform = Transform( -0.607393, 0, 0.197243, 0, 0.768524, 0, -0.270879, 0, -0.834152, 27.1891, 12.4169, -1.19778 )
+
+[node name="@rock1@96" parent="." instance=ExtResource( 4 )]
+transform = Transform( 0.232512, 0, 1.10122, 0, 0.591447, 0, -0.610556, 0, 0.128913, 31.1232, 3.59397, 0.122257 )
+
+[node name="@rock2@97" parent="." instance=ExtResource( 3 )]
+transform = Transform( -0.590875, 0, -0.137004, 0, 1.3953, 0, 0.121308, 0, -0.523178, 1.72362, 4.07119, 0.0508575 )
+
+[node name="@rock2@98" parent="." instance=ExtResource( 3 )]
+transform = Transform( 0.175145, 0, -0.994583, 0, 1.34353, 0, 0.843253, 0, 0.148496, -16.6443, 4.61796, -0.0309467 )
+
+[node name="@rock3@99" parent="." instance=ExtResource( 2 )]
+transform = Transform( -0.534078, 0, 0.901734, 0, 0.866958, 0, -0.772683, 0, -0.457644, -16.8693, -5.49366, 1.4819 )
+
+[node name="@rock1@100" parent="." instance=ExtResource( 4 )]
+transform = Transform( 0.575385, 0, 1.21142, 0, 0.702716, 0, -1.2112, 0, 0.57528, -3.80986, 7.84134, -0.513214 )
+
+[node name="@rock3@101" parent="." instance=ExtResource( 2 )]
+transform = Transform( -1.12673, 0, -0.347907, 0, 0.519479, 0, 0.164692, 0, -0.533369, -13.4857, 11.4222, -1.04896 )
+
+[node name="@rock3@102" parent="." instance=ExtResource( 2 )]
+transform = Transform( 0.386267, 0, 0.99047, 0, 0.876958, 0, -0.941674, 0, 0.367238, 6.09944, 7.59891, -0.476938 )
+
+[node name="@rock3@103" parent="." instance=ExtResource( 2 )]
+transform = Transform( -0.862458, 0, -0.238343, 0, 1.15164, 0, 0.34043, 0, -1.23186, 13.2935, 1.8606, 0.381598 )
+
+[node name="@rock1@104" parent="." instance=ExtResource( 4 )]
+transform = Transform( 0.107321, 0, 1.38674, 0, 1.49014, 0, -1.0028, 0, 0.0776075, 16.9048, -1.73357, 0.919338 )
+
+[node name="@rock2@105" parent="." instance=ExtResource( 3 )]
+transform = Transform( -1.02936, 0, -0.270509, 0, 1.34549, 0, 0.197099, 0, -0.750012, -5.09601, -3.71533, 1.21584 )
+
+[node name="@rock3@106" parent="." instance=ExtResource( 2 )]
+transform = Transform( -1.14099, 0, 0.794197, 0, 1.31069, 0, -0.335587, 0, -0.482123, 19.4062, 6.41604, -0.299965 )
+
+[node name="@rock1@107" parent="." instance=ExtResource( 4 )]
+transform = Transform( 0.892017, 0, 0.764899, 0, 0.889725, 0, -0.829704, 0, 0.967593, 12.8249, 13.797, -1.40427 )
+
+[node name="@rock3@108" parent="." instance=ExtResource( 2 )]
+transform = Transform( -0.531936, 0, -0.370888, 0, 1.21393, 0, 0.399836, 0, -0.573455, 7.21398, -2.8543, 1.08702 )
+
+[node name="@rock1@109" parent="." instance=ExtResource( 4 )]
+transform = Transform( 0.572944, 0, -0.38339, 0, 0.919039, 0, 0.299291, 0, 0.447265, -0.5664, 11.6726, -1.08643 )
+
+[node name="@rock2@110" parent="." instance=ExtResource( 3 )]
+transform = Transform( 1.16336, 0, 0.505994, 0, 0.624906, 0, -0.489364, 0, 1.12512, -19.6765, 11.9281, -1.12465 )
+
+[node name="@rock3@111" parent="." instance=ExtResource( 2 )]
+transform = Transform( -1.26968, 0, -0.431518, 0, 1.16954, 0, 0.433279, 0, -1.27486, -42.6755, -0.472911, -11.1505 )
+
+[node name="@rock3@112" parent="." instance=ExtResource( 2 )]
+transform = Transform( -0.14979, 0, -0.572928, 0, 0.860508, 0, 0.779156, 0, -0.203708, -50.6213, 2.37263, -11.5762 )
+
+[node name="@rock3@113" parent="." instance=ExtResource( 2 )]
+transform = Transform( -0.32654, 0, -0.62193, 0, 1.36155, 0, 0.817315, 0, -0.429126, -53.3257, 11.7351, -12.977 )
+
+[node name="@rock1@114" parent="." instance=ExtResource( 4 )]
+transform = Transform( 0.86968, 0, -0.666345, 0, 1.15787, 0, 0.356817, 0, 0.465699, -44.807, 11.5682, -12.952 )
+
+[node name="@rock2@115" parent="." instance=ExtResource( 3 )]
+transform = Transform( -0.136429, 0, -0.589709, 0, 0.730059, 0, 0.965131, 0, -0.223283, -44.5225, 7.10276, -12.2839 )
+
+[node name="@rock1@116" parent="." instance=ExtResource( 4 )]
+transform = Transform( -1.05559, 0, 0.222497, 0, 1.49523, 0, -0.308291, 0, -1.46263, -42.5768, 5.14318, -11.9907 )
+
+[node name="@rock1@117" parent="." instance=ExtResource( 4 )]
+transform = Transform( 0.722049, 0, 1.00645, 0, 1.42392, 0, -0.992577, 0, 0.712097, -59.1177, 6.33972, -17.9451 )
+
+[node name="@rock1@118" parent="." instance=ExtResource( 4 )]
+transform = Transform( 0.763215, 0, 0.979319, 0, 0.678256, 0, -0.910439, 0, 0.709535, -81.1219, 8.7292, -28.3688 )
+
+[node name="@rock3@119" parent="." instance=ExtResource( 2 )]
+transform = Transform( 0.853037, 0, -0.491381, 0, 0.5255, 0, 0.373197, 0, 0.64787, -69.6395, 10.8159, -28.681 )
+
+[node name="@rock2@120" parent="." instance=ExtResource( 3 )]
+transform = Transform( 0.743047, 0, 0.644221, 0, 1.25564, 0, -0.809136, 0, 0.93326, -73.1935, 0.54926, -27.145 )
+
+[node name="@rock1@121" parent="." instance=ExtResource( 4 )]
+transform = Transform( -0.627649, 0, 0.97588, 0, 1.00386, 0, -0.662103, 0, -0.425839, -85.8641, 12.8651, -31.264 )
+
+[node name="@rock2@122" parent="." instance=ExtResource( 3 )]
+transform = Transform( -0.275795, 0, -0.577867, 0, 0.981549, 0, 1.13748, 0, -0.542876, -87.1915, 3.99287, -32.8477 )
+
+[node name="@rock2@123" parent="." instance=ExtResource( 3 )]
+transform = Transform( -1.0226, 0, 0.328485, 0, 1.05349, 0, -0.39116, 0, -1.21772, -88.1365, -2.32353, -33.5475 )
+
+[node name="@rock1@124" parent="." instance=ExtResource( 4 )]
+transform = Transform( -0.723062, 0, -1.1701, 0, 1.27508, 0, 0.445769, 0, -0.275463, -105.852, 11.6251, -41.7014 )
+
+[node name="@rock2@125" parent="." instance=ExtResource( 3 )]
+transform = Transform( -0.90681, 0, 0.260583, 0, 0.588283, 0, -0.224928, 0, -0.782732, -94.6414, 4.33414, -39.5925 )
+
+[node name="@rock1@126" parent="." instance=ExtResource( 4 )]
+transform = Transform( -0.110289, 0, -0.90866, 0, 1.07784, 0, 0.810484, 0, -0.0983729, -101.748, -0.498495, -38.8694 )
+
+[node name="@rock2@127" parent="." instance=ExtResource( 3 )]
+transform = Transform( -0.194784, 0, -0.587004, 0, 0.805705, 0, 0.637376, 0, -0.211499, -102.016, 0.0138302, -38.3138 )
+
+[node name="@rock1@128" parent="." instance=ExtResource( 4 )]
+transform = Transform( -1.0441, 0, 0.528042, 0, 0.97393, 0, -0.446977, 0, -0.883806, -98.2579, 13.9208, -41.0268 )
+
+[node name="@rock1@129" parent="." instance=ExtResource( 4 )]
+transform = Transform( -0.518536, 0, -0.727724, 0, 1.33115, 0, 1.01749, 0, -0.72501, -92.4682, 10.6679, -40.5401 )
+
+[node name="@rock2@130" parent="." instance=ExtResource( 3 )]
+transform = Transform( -1.38151, 0, -0.124187, 0, 0.701538, 0, 0.0742923, 0, -0.826458, -98.8556, 7.49642, -40.0656 )
+
+[node name="@rock1@131" parent="." instance=ExtResource( 4 )]
+transform = Transform( 0.971781, 0, 0.573824, 0, 1.47083, 0, -0.400043, 0, 0.67748, -103.35, 6.53149, -39.9212 )
+
+[node name="@rock3@132" parent="." instance=ExtResource( 2 )]
+transform = Transform( -0.319824, 0, -0.756605, 0, 1.3402, 0, 1.05046, 0, -0.444041, -106.205, 9.26532, -59.1886 )
+
+[node name="@rock1@133" parent="." instance=ExtResource( 4 )]
+transform = Transform( -0.595536, 0, -0.268954, 0, 0.728873, 0, 0.21949, 0, -0.48601, -107.587, 0.0285149, -51.0229 )
+
+[node name="@rock1@134" parent="." instance=ExtResource( 4 )]
+transform = Transform( 0.154234, 0, -0.656807, 0, 1.48555, 0, 1.15832, 0, 0.272002, -108.034, -2.95947, -49.0904 )
+
+[node name="@rock2@135" parent="." instance=ExtResource( 3 )]
+transform = Transform( 0.231786, 0, 0.719592, 0, 0.813482, 0, -1.08414, 0, 0.349209, -107.369, 1.48114, -62.7107 )
+
+[node name="@rock2@136" parent="." instance=ExtResource( 3 )]
+transform = Transform( -0.74655, 0, -0.423466, 0, 1.07797, 0, 0.48093, 0, -0.847857, -106.327, 8.44769, -56.3465 )
+
+[node name="@rock3@137" parent="." instance=ExtResource( 2 )]
+transform = Transform( 0.0248149, 0, -1.3595, 0, 1.16456, 0, 1.23335, 0, 0.0225122, -106.212, 9.21519, -57.223 )
+
+[node name="@rock2@138" parent="." instance=ExtResource( 3 )]
+transform = Transform( 0.935177, 0, 1.11499, 0, 0.855114, 0, -0.858002, 0, 0.719635, -107.903, -2.08491, -64.7676 )
+
+[node name="@rock3@139" parent="." instance=ExtResource( 2 )]
+transform = Transform( 0.492257, 0, 0.60181, 0, 0.618112, 0, -0.572275, 0, 0.468098, -106.386, 8.05391, -69.2185 )
+
+[node name="@rock2@140" parent="." instance=ExtResource( 3 )]
+transform = Transform( -0.303473, 0, 1.07221, 0, 0.916056, 0, -1.10706, 0, -0.313337, -105.849, 11.641, -61.3871 )
+
+[node name="@rock2@141" parent="." instance=ExtResource( 3 )]
+transform = Transform( 0.693984, 0, 0.929991, 0, 0.797972, 0, -1.16006, 0, 0.865666, -106.616, 6.51738, -67.4999 )
+
+[node name="@rock2@142" parent="." instance=ExtResource( 3 )]
+transform = Transform( 0.395099, 0, -0.752936, 0, 0.547451, 0, 1.16642, 0, 0.612071, -106.9, 4.62051, -53.9676 )
+
+[node name="@rock1@143" parent="." instance=ExtResource( 4 )]
+transform = Transform( 0.933825, 0, 0.881526, 0, 0.666476, 0, -0.870568, 0, 0.922218, -106.838, 5.03037, -65.7128 )
+
+[node name="@rock2@144" parent="." instance=ExtResource( 3 )]
+transform = Transform( 0.722939, 0, 0.968182, 0, 1.18707, 0, -1.07006, 0, 0.799009, -106.673, 6.13331, -60.2231 )
+
+[node name="@rock2@145" parent="." instance=ExtResource( 3 )]
+transform = Transform( -0.14541, 0, 1.10665, 0, 1.09403, 0, -1.17024, 0, -0.153766, -105.639, 13.0488, -49.8555 )
+
+[node name="@rock2@146" parent="." instance=ExtResource( 3 )]
+transform = Transform( 0.582069, 0, -0.289215, 0, 0.52648, 0, 0.567449, 0, 1.14204, -105.742, 12.357, -62.7461 )
+
+[node name="@rock1@147" parent="." instance=ExtResource( 4 )]
+transform = Transform( -1.46556, 0, -0.000608812, 0, 1.03748, 0, 0.000359545, 0, -0.865513, -105.666, 12.8652, -67.4017 )
+
+[node name="@rock3@148" parent="." instance=ExtResource( 2 )]
+transform = Transform( -0.669287, 0, 0.939487, 0, 0.720295, 0, -0.957846, 0, -0.682365, -105.482, 14.097, -63.1678 )
+
+[node name="@rock2@149" parent="." instance=ExtResource( 3 )]
+transform = Transform( 0.639706, 0, -0.661023, 0, 1.00652, 0, 0.733744, 0, 0.710083, -105.564, 13.5474, -57.1348 )
+
+[node name="@rock1@150" parent="." instance=ExtResource( 4 )]
+transform = Transform( 1.36015, 0, -0.077253, 0, 0.735441, 0, 0.0519824, 0, 0.915228, -101.79, 7.99113, -70.7518 )
+
+[node name="@rock1@151" parent="." instance=ExtResource( 4 )]
+transform = Transform( 0.711113, 0, -0.353233, 0, 0.804114, 0, 0.240527, 0, 0.484218, -95.7103, 3.13537, -71.4783 )
+
+[node name="@rock3@152" parent="." instance=ExtResource( 2 )]
+transform = Transform( -0.280985, 0, 0.680594, 0, 0.990286, 0, -0.664724, 0, -0.274433, -86.6698, 10.2069, -72.8594 )
+
+[node name="@rock1@153" parent="." instance=ExtResource( 4 )]
+transform = Transform( -0.57368, 0, -0.712866, 0, 0.817533, 0, 0.88665, 0, -0.713533, -83.1106, 10.4595, -82.2636 )
+
+[node name="@rock1@154" parent="." instance=ExtResource( 4 )]
+transform = Transform( -0.109939, 0, -1.24502, 0, 0.912724, 0, 1.42117, 0, -0.125493, -78.5215, 4.74916, -83.1179 )
+
+[node name="@rock1@155" parent="." instance=ExtResource( 4 )]
+transform = Transform( -0.895915, 0, -1.12737, 0, 0.642247, 0, 0.668105, 0, -0.53094, -76.0138, 9.53213, -70.9506 )
+
+[node name="@rock3@156" parent="." instance=ExtResource( 2 )]
+transform = Transform( -0.786331, 0, -0.214854, 0, 1.18942, 0, 0.134974, 0, -0.493984, -74.5445, -0.288401, -64.5057 )
+
+[node name="@rock2@157" parent="." instance=ExtResource( 3 )]
+transform = Transform( 0.602083, 0, 0.743491, 0, 1.29345, 0, -0.927605, 0, 0.751179, -73.7395, -5.66896, -66.7021 )
+
+[node name="@rock2@158" parent="." instance=ExtResource( 3 )]
+transform = Transform( -0.81055, 0, -0.73142, 0, 0.960347, 0, 0.695312, 0, -0.770535, -63.0975, 6.66459, -55.1087 )
+
+[node name="@rock1@159" parent="." instance=ExtResource( 4 )]
+transform = Transform( -1.25323, 0, -0.694916, 0, 0.780208, 0, 0.490899, 0, -0.8853, -62.8162, 8.36499, -54.8542 )
+
+[node name="@rock1@160" parent="." instance=ExtResource( 4 )]
+transform = Transform( -0.418302, 0, 0.597346, 0, 0.601992, 0, -0.462194, 0, -0.32366, -58.3232, -2.82616, -44.5538 )
+
+[node name="@rock1@161" parent="." instance=ExtResource( 4 )]
+transform = Transform( -1.24647, 0, 0.4979, 0, 0.841523, 0, -0.328188, 0, -0.8216, -65.2002, -0.434092, -56.1707 )
+
+[node name="@rock2@162" parent="." instance=ExtResource( 3 )]
+transform = Transform( 0.525614, 0, 1.0695, 0, 0.520871, 0, -1.02071, 0, 0.501638, -65.8838, 13.1342, -54.1407 )
+
+[node name="@rock3@163" parent="." instance=ExtResource( 2 )]
+transform = Transform( -0.658742, 0, 0.557009, 0, 1.37203, 0, -0.325201, 0, -0.384597, -59.0614, 12.2003, -38.4388 )
+
+[node name="@rock3@164" parent="." instance=ExtResource( 2 )]
+transform = Transform( -0.958303, 0, 0.495268, 0, 0.593335, 0, -0.519872, 0, -1.00591, -55.9305, 9.45737, -38.8492 )
+
+[node name="@rock1@165" parent="." instance=ExtResource( 4 )]
+transform = Transform( -0.203201, 0, -0.867189, 0, 1.39275, 0, 1.36617, 0, -0.320123, -43.2712, 6.37248, -48.8064 )
+
+[node name="@rock2@166" parent="." instance=ExtResource( 3 )]
+transform = Transform( -1.01317, 0, 0.0983742, 0, 1.4464, 0, -0.0906707, 0, -0.933834, -49.0389, -1.30714, -40.4597 )
+
+[node name="@rock1@167" parent="." instance=ExtResource( 4 )]
+transform = Transform( 1.13528, 0, 0.867843, 0, 1.39009, 0, -0.312434, 0, 0.408715, -45.2038, 12.9374, -38.6695 )
+
+[node name="@rock2@168" parent="." instance=ExtResource( 3 )]
+transform = Transform( 1.1138, 0, 0.957204, 0, 0.741018, 0, -0.848104, 0, 0.986854, -45.3548, 12.7836, -39.1604 )
+
+[node name="@rock3@169" parent="." instance=ExtResource( 2 )]
+transform = Transform( -0.578832, 0, 0.404017, 0, 1.19215, 0, -0.433352, 0, -0.620861, -36.5292, 9.22031, -54.7263 )
+
+[node name="@rock3@170" parent="." instance=ExtResource( 2 )]
+transform = Transform( 1.17379, 0, 0.32815, 0, 1.42742, 0, -0.180247, 0, 0.644743, -33.8257, 2.96761, -55.6618 )
+
+[node name="@rock2@171" parent="." instance=ExtResource( 3 )]
+transform = Transform( 0.641589, 0, -0.573577, 0, 0.646969, 0, 0.833217, 0, 0.932016, -42.0401, -0.718725, -55.7576 )
+
+[node name="@rock3@172" parent="." instance=ExtResource( 2 )]
+transform = Transform( 0.466456, 0, -0.432596, 0, 1.08542, 0, 0.734376, 0, 0.791857, -27.8905, 3.2913, -65.847 )
+
+[node name="@rock1@173" parent="." instance=ExtResource( 4 )]
+transform = Transform( -0.296143, 0, 0.737775, 0, 0.59339, 0, -0.68063, 0, -0.273205, -27.7042, 4.53696, -65.9456 )
+
+[node name="@rock1@174" parent="." instance=ExtResource( 4 )]
+transform = Transform( 0.688015, 0, -0.0193504, 0, 0.543717, 0, 0.0316051, 0, 1.12374, -29.361, -6.53671, -64.2834 )
+
+[node name="@rock1@175" parent="." instance=ExtResource( 4 )]
+transform = Transform( -0.700325, 0, 1.162, 0, 1.14488, 0, -0.984064, 0, -0.593084, -27.071, 8.76928, -63.0535 )
+
+[node name="@rock1@176" parent="." instance=ExtResource( 4 )]
+transform = Transform( 0.542421, 0, -1.18862, 0, 0.767929, 0, 0.819854, 0, 0.374138, -26.9344, 9.68192, -71.6861 )
+
+[node name="@rock3@177" parent="." instance=ExtResource( 2 )]
+transform = Transform( 1.22107, 0, -0.843959, 0, 0.897843, 0, 0.63826, 0, 0.923456, -41.2701, 3.19902, -71.1059 )
+
+[node name="@rock2@178" parent="." instance=ExtResource( 3 )]
+transform = Transform( 0.23214, 0, 1.0058, 0, 0.838294, 0, -0.625198, 0, 0.144297, -38.3893, 11.7921, -72.3915 )
+
+[node name="@rock3@179" parent="." instance=ExtResource( 2 )]
+transform = Transform( 0.764345, 0, -0.83439, 0, 1.4625, 0, 0.678554, 0, 0.621591, -40.7121, 6.92527, -71.6633 )
+
+[node name="@rock2@180" parent="." instance=ExtResource( 3 )]
+transform = Transform( 1.14839, 0, -0.371639, 0, 0.850973, 0, 0.269878, 0, 0.83394, -43.1033, 7.49407, -79.0373 )
+
+[node name="@rock1@181" parent="." instance=ExtResource( 4 )]
+transform = Transform( 0.236934, 0, 1.20361, 0, 0.941438, 0, -1.35139, 0, 0.266024, -43.2831, 6.29236, -78.8208 )
+
+[node name="@rock2@182" parent="." instance=ExtResource( 3 )]
+transform = Transform( -0.839125, 0, -0.595837, 0, 1.11693, 0, 0.757687, 0, -1.06706, -44.1843, 0.269385, -77.2357 )
+
+[node name="@rock1@183" parent="." instance=ExtResource( 4 )]
+transform = Transform( -1.11415, 0, 0.00916609, 0, 1.37836, 0, -0.00851945, 0, -1.03555, -44.4597, -1.57147, -76.4839 )
+
+[node name="@rock1@184" parent="." instance=ExtResource( 4 )]
+transform = Transform( 0.453234, 0, 0.678723, 0, 0.629402, 0, -1.00861, 0, 0.673523, -43.9808, 1.62935, -87.8043 )
+
+[node name="@rock2@185" parent="." instance=ExtResource( 3 )]
+transform = Transform( -0.157402, 0, 0.791546, 0, 0.941052, 0, -1.37544, 0, -0.27351, -42.6796, 10.326, -83.2469 )
+
+[node name="@rock2@186" parent="." instance=ExtResource( 3 )]
+transform = Transform( 1.03777, 0, -0.250002, 0, 0.562058, 0, 0.302854, 0, 1.25716, -42.2733, 13.0419, -87.1655 )
+
+[node name="@rock1@187" parent="." instance=ExtResource( 4 )]
+transform = Transform( 0.849989, 0, -0.0649554, 0, 0.730931, 0, 0.0409018, 0, 0.535229, -43.1036, 7.49245, -94.1786 )
+
+[node name="@rock1@188" parent="." instance=ExtResource( 4 )]
+transform = Transform( -0.547149, 0, 1.13841, 0, 1.29349, 0, -0.641815, 0, -0.308472, -43.4539, 5.15127, -92.7238 )
+
+[node name="@rock3@189" parent="." instance=ExtResource( 2 )]
+transform = Transform( -0.547789, 0, -0.872392, 0, 0.702979, 0, 1.08862, 0, -0.683559, -43.0333, 7.96213, -90.7536 )
+
+[node name="@rock2@190" parent="." instance=ExtResource( 3 )]
+transform = Transform( -0.550048, 0, -0.529438, 0, 1.41651, 0, 0.423314, 0, -0.439793, 23.995, -8.8235, 49.3288 )
+
+[node name="@rock2@191" parent="." instance=ExtResource( 3 )]
+transform = Transform( 0.62551, 0, -0.0686128, 0, 1.12191, 0, 0.0772404, 0, 0.704164, 23.7664, -8.8235, 54.0404 )
+
+[node name="@rock1@192" parent="." instance=ExtResource( 4 )]
+transform = Transform( -1.49451, 0, 0.00639938, 0, 0.733818, 0, -0.00234713, 0, -0.548146, 26.5404, -8.8235, 52.1103 )
+
+[node name="@rock1@193" parent="." instance=ExtResource( 4 )]
+transform = Transform( 1.04448, 0, 0.807026, 0, 1.43351, 0, -0.650703, 0, 0.842164, 25.5101, -8.8235, 49.5505 )
+
+[node name="@rock1@194" parent="." instance=ExtResource( 4 )]
+transform = Transform( -0.826204, 0, 0.538445, 0, 0.587843, 0, -0.722801, 0, -1.10909, 22.8385, -8.8235, 46.652 )
+
+[node name="@rock3@195" parent="." instance=ExtResource( 2 )]
+transform = Transform( -0.563972, 0, -0.105748, 0, 1.27659, 0, 0.216206, 0, -1.15307, 19.8849, -8.8235, 48.6658 )
+
+[node name="@rock3@196" parent="." instance=ExtResource( 2 )]
+transform = Transform( 0.40132, 0, -0.556046, 0, 1.38957, 0, 0.970342, 0, 0.700333, 19.7882, -8.8235, 51.7229 )
+
+[node name="@rock1@197" parent="." instance=ExtResource( 4 )]
+transform = Transform( 0.340543, 0, -1.07207, 0, 1.27523, 0, 0.557631, 0, 0.177132, 21.0332, -8.8235, 56.021 )
+
+[node name="@rock1@198" parent="." instance=ExtResource( 4 )]
+transform = Transform( 0.21084, 0, -1.21147, 0, 0.500831, 0, 1.17802, 0, 0.205019, 25.0357, -8.8235, 55.8668 )
+
+[node name="@rock1@199" parent="." instance=ExtResource( 4 )]
+transform = Transform( 0.824828, 0, 0.219097, 0, 1.29173, 0, -0.313257, 0, 1.1793, 28.0212, -8.8235, 52.7744 )
+
+[node name="@rock2@200" parent="." instance=ExtResource( 3 )]
+transform = Transform( 1.31907, 0, -0.453503, 0, 1.06914, 0, 0.408983, 0, 1.18958, 23.0145, -8.8235, 51.8907 )
+
+[node name="@rock2@201" parent="." instance=ExtResource( 3 )]
+transform = Transform( 0.695245, 0, 0.920661, 0, 0.521164, 0, -0.907765, 0, 0.685506, 22.7388, -8.8235, 48.467 )
+
+[node name="@rock3@202" parent="." instance=ExtResource( 2 )]
+transform = Transform( -0.12253, 0, 1.10406, 0, 1.1164, 0, -0.861053, 0, -0.0955606, 21.453, -8.8235, 47.2545 )
+
+[node name="@rock2@203" parent="." instance=ExtResource( 3 )]
+transform = Transform( 0.214132, 0, 1.32633, 0, 1.32751, 0, -0.672271, 0, 0.108536, 20.0209, -8.33895, 50.8521 )
+
+[node name="@rock3@204" parent="." instance=ExtResource( 2 )]
+transform = Transform( -0.985571, 0, 1.125, 0, 0.840293, 0, -1.02863, 0, -0.901148, 21.3329, -8.8235, 53.9611 )
+
+[node name="@rock1@205" parent="." instance=ExtResource( 4 )]
+transform = Transform( -0.645481, 0, 0.794713, 0, 0.769683, 0, -0.931977, 0, -0.75697, 21.357, -8.8235, 50.6764 )
+
+[node name="@rock1@206" parent="." instance=ExtResource( 4 )]
+transform = Transform( -1.28785, 0, 0.659353, 0, 0.530546, 0, -0.336868, 0, -0.657973, 21.4898, -8.60392, 49.4646 )
+
+[node name="@rock3@207" parent="." instance=ExtResource( 2 )]
+transform = Transform( -0.269312, 0, 0.745718, 0, 1.32913, 0, -1.04856, 0, -0.378683, 26.4459, -8.8235, 45.8196 )
+
+[node name="@rock1@208" parent="." instance=ExtResource( 4 )]
+transform = Transform( -0.589323, 0, 0.277017, 0, 1.11399, 0, -0.506998, 0, -1.07858, 27.6693, -7.59906, 44.3667 )
+
+[node name="@rock3@209" parent="." instance=ExtResource( 2 )]
+transform = Transform( 0.140107, 0, 0.726072, 0, 0.952868, 0, -1.41345, 0, 0.272747, 30.3222, -8.17954, 45.7593 )
+
+[node name="@rock3@210" parent="." instance=ExtResource( 2 )]
+transform = Transform( -0.398035, 0, -0.928875, 0, 1.26256, 0, 0.827461, 0, -0.354578, 37.081, -4.7059, 46.2353 )
+
+[node name="@rock1@211" parent="." instance=ExtResource( 4 )]
+transform = Transform( -1.35966, 0, -0.276747, 0, 0.89278, 0, 0.168354, 0, -0.827124, 41.6869, -4.7059, 44.1695 )
+
+[node name="@rock2@212" parent="." instance=ExtResource( 3 )]
+transform = Transform( -0.64207, 0, 1.11213, 0, 0.532441, 0, -0.681947, 0, -0.393713, 39.6861, -4.7059, 37.7909 )
+
+[node name="@rock1@213" parent="." instance=ExtResource( 4 )]
+transform = Transform( -0.637066, 0, -0.0452193, 0, 1.18786, 0, 0.0550009, 0, -0.774874, 35.1868, -4.7059, 34.5508 )
+
+[node name="@rock1@214" parent="." instance=ExtResource( 4 )]
+transform = Transform( -0.757915, 0, -0.630761, 0, 1.26703, 0, 0.667366, 0, -0.8019, 29.5955, -4.7059, 26.3943 )
+
+[node name="@rock2@215" parent="." instance=ExtResource( 3 )]
+transform = Transform( -0.993683, 0, -1.04462, 0, 1.35208, 0, 0.386655, 0, -0.3678, 27.9924, -4.7059, 24.456 )
+
+[node name="@rock2@216" parent="." instance=ExtResource( 3 )]
+transform = Transform( 0.33245, 0, -0.849918, 0, 0.505599, 0, 0.66428, 0, 0.259836, 41.6341, -4.7059, 19.5855 )
+
+[node name="@rock1@217" parent="." instance=ExtResource( 4 )]
+transform = Transform( -0.175813, 0, 0.496563, 0, 0.723017, 0, -1.17545, 0, -0.416181, 50.2112, -8.8235, 14.0737 )
+
+[node name="@rock1@218" parent="." instance=ExtResource( 4 )]
+transform = Transform( -0.720851, 0, 0.73818, 0, 1.0286, 0, -0.573397, 0, -0.559936, 60.7371, -8.02707, 17.0557 )
+
+[node name="@rock1@219" parent="." instance=ExtResource( 4 )]
+transform = Transform( 1.06866, 0, 0.989743, 0, 0.5089, 0, -0.624714, 0, 0.674528, 69.3807, -7.85418, 16.8894 )
+
+[node name="@rock2@220" parent="." instance=ExtResource( 3 )]
+transform = Transform( 0.612597, 0, -0.539917, 0, 1.13144, 0, 0.545832, 0, 0.619309, 68.9774, -4.7059, 10.7211 )
+
+[node name="@rock1@221" parent="." instance=ExtResource( 4 )]
+transform = Transform( 1.12222, 0, -0.0432533, 0, 1.27042, 0, 0.0472891, 0, 1.22693, 67.102, -4.7059, 5.27739 )
+
+[node name="@rock3@222" parent="." instance=ExtResource( 2 )]
+transform = Transform( -0.467001, 0, -1.10575, 0, 0.567928, 0, 0.982403, 0, -0.414907, 71.4303, -4.7059, 5.36596 )
+
+[node name="@rock2@223" parent="." instance=ExtResource( 3 )]
+transform = Transform( -0.2308, 0, -0.518891, 0, 0.619567, 0, 1.11154, 0, -0.49441, 126.543, -10, -28.528 )
+
+[node name="@rock2@224" parent="." instance=ExtResource( 3 )]
+transform = Transform( 0.602195, 0, -0.404694, 0, 0.514123, 0, 0.42282, 0, 0.629167, 144.498, -10, -42.0374 )
+
+[node name="@rock1@225" parent="." instance=ExtResource( 4 )]
+transform = Transform( -0.914106, 0, -0.58195, 0, 0.895969, 0, 0.46853, 0, -0.73595, 144.136, -10, -62.9563 )
+
+[node name="@rock1@226" parent="." instance=ExtResource( 4 )]
+transform = Transform( -0.704614, 0, -0.592131, 0, 1.17799, 0, 0.696232, 0, -0.828491, 121.486, -9.02973, -55.0285 )
+
+[node name="@rock1@227" parent="." instance=ExtResource( 4 )]
+transform = Transform( 1.117, 0, 0.449389, 0, 0.67644, 0, -0.538197, 0, 1.33774, 103.528, -8.8235, -30.0014 )
+
+[node name="@rock3@228" parent="." instance=ExtResource( 2 )]
+transform = Transform( -0.424908, 0, 0.342764, 0, 1.08742, 0, -0.864604, 0, -1.07181, 122.89, -10, -0.936493 )
+
+[node name="@rock2@229" parent="." instance=ExtResource( 3 )]
+transform = Transform( -0.55847, 0, 0.18823, 0, 0.895722, 0, -0.377379, 0, -1.11967, 130.413, -10, 4.61226 )
+
+[node name="@rock2@230" parent="." instance=ExtResource( 3 )]
+transform = Transform( -0.40347, 0, -0.399592, 0, 0.865573, 0, 0.399784, 0, -0.403665, 110.796, -10, 41.5672 )
+
+[node name="@rock1@231" parent="." instance=ExtResource( 4 )]
+transform = Transform( -0.689707, 0, -0.753731, 0, 0.532727, 0, 0.431192, 0, -0.394566, 84.8666, -9.49107, 31.416 )
+
+[node name="@rock3@232" parent="." instance=ExtResource( 2 )]
+transform = Transform( -1.06745, 0, -0.863187, 0, 0.594169, 0, 0.472425, 0, -0.584219, 76.2414, -9.70704, 19.2722 )
+
+[node name="@rock1@233" parent="." instance=ExtResource( 4 )]
+transform = Transform( -0.0335261, 0, -0.97355, 0, 0.728611, 0, 1.29232, 0, -0.0445034, 73.9353, -8.82901, 17.1722 )
+
+[node name="@rock3@234" parent="." instance=ExtResource( 2 )]
+transform = Transform( -0.0588976, 0, 1.44981, 0, 0.663684, 0, -1.41962, 0, -0.0576711, 96.8148, -10, 37.8476 )
+
+[node name="@rock3@235" parent="." instance=ExtResource( 2 )]
+transform = Transform( 0.664413, 0, -1.06505, 0, 1.12347, 0, 1.12347, 0, 0.700863, 98.9736, -10, 43.8956 )
+
+[node name="@rock1@236" parent="." instance=ExtResource( 4 )]
+transform = Transform( -0.802222, 0, -0.296413, 0, 1.33385, 0, 0.258112, 0, -0.698562, 65.158, -8.8235, 64.5277 )
+
+[node name="@rock3@237" parent="." instance=ExtResource( 2 )]
+transform = Transform( 0.939797, 0, 0.876505, 0, 0.852334, 0, -0.371191, 0, 0.397995, 73.9948, -1.7171, 83.8172 )
+
+[node name="@rock3@238" parent="." instance=ExtResource( 2 )]
+transform = Transform( -0.650295, 0, 0.953389, 0, 0.713489, 0, -0.610788, 0, -0.416611, 72.3049, -0.117598, 84.2612 )
+
+[node name="@rock2@239" parent="." instance=ExtResource( 3 )]
+transform = Transform( 0.275207, 0, 1.46503, 0, 1.26977, 0, -1.39835, 0, 0.262681, 58.9085, -3.37748, 98.9454 )
+
+[node name="@rock2@240" parent="." instance=ExtResource( 3 )]
+transform = Transform( 0.588165, 0, -1.12936, 0, 0.796895, 0, 0.84294, 0, 0.438999, 46.5128, -2.24638, 114.26 )
+
+[node name="@rock1@241" parent="." instance=ExtResource( 4 )]
+transform = Transform( 0.709491, 0, -0.888793, 0, 1.47579, 0, 0.529133, 0, 0.422387, 10.0621, -0.117599, 130.851 )
+
+[node name="@rock2@242" parent="." instance=ExtResource( 3 )]
+transform = Transform( -0.830347, 0, -1.17543, 0, 1.05734, 0, 1.1266, 0, -0.795852, 29.534, -0.172031, 132.698 )
+
+[node name="@rock1@243" parent="." instance=ExtResource( 4 )]
+transform = Transform( -0.645025, 0, -1.29474, 0, 0.931308, 0, 0.926093, 0, -0.461369, 25.0218, -0.117599, 128.509 )
+
+[node name="@rock3@244" parent="." instance=ExtResource( 2 )]
+transform = Transform( 1.4133, 0, -0.160271, 0, 0.695093, 0, 0.158153, 0, 1.39462, 3.23518, -0.117601, 127.675 )
+
+[node name="@rock3@245" parent="." instance=ExtResource( 2 )]
+transform = Transform( 0.85234, 0, -1.07413, 0, 1.22568, 0, 0.814083, 0, 0.645986, -0.875612, -0.117601, 132.286 )
+
+[node name="@rock3@246" parent="." instance=ExtResource( 2 )]
+transform = Transform( 0.527229, 0, 1.3043, 0, 1.39924, 0, -0.703065, 0, 0.284195, -11.0625, -0.117599, 143.534 )
+
+[node name="@rock2@247" parent="." instance=ExtResource( 3 )]
+transform = Transform( -0.00358497, 0, 0.877207, 0, 0.740008, 0, -1.09661, 0, -0.00448163, -29.798, -4.55334, 146.572 )
+
+[node name="@rock2@248" parent="." instance=ExtResource( 3 )]
+transform = Transform( 1.16384, 0, -0.242909, 0, 1.25272, 0, 0.289767, 0, 1.38835, -57.776, -0.887257, 137.272 )
+
+[node name="@rock2@249" parent="." instance=ExtResource( 3 )]
+transform = Transform( -0.0120313, 0, 0.651603, 0, 1.47801, 0, -1.33759, 0, -0.0246974, -50.2768, -0.117599, 131.801 )
+
+[node name="@rock2@250" parent="." instance=ExtResource( 3 )]
+transform = Transform( 0.90017, 0, -0.7355, 0, 0.613505, 0, 0.55554, 0, 0.679919, -40.799, -0.117603, 133.854 )
+
+[node name="@rock3@251" parent="." instance=ExtResource( 2 )]
+transform = Transform( 0.803933, 0, -0.104413, 0, 0.900812, 0, 0.120723, 0, 0.929508, -55.3316, -0.117603, 121.767 )
+
+[node name="@rock1@252" parent="." instance=ExtResource( 4 )]
+transform = Transform( 0.506583, 0, -0.329313, 0, 0.632406, 0, 0.501362, 0, 0.771245, -65.2799, -0.588196, 106.159 )
+
+[node name="@rock1@253" parent="." instance=ExtResource( 4 )]
+transform = Transform( -0.735915, 0, -1.15055, 0, 1.45024, 0, 1.25531, 0, -0.802926, -82.9499, -8.8235, 82.137 )
+
+[node name="@rock2@254" parent="." instance=ExtResource( 3 )]
+transform = Transform( 1.20358, 0, 0.557938, 0, 0.637366, 0, -0.333115, 0, 0.718591, -90.0282, -8.7471, 77.1541 )
+
+[node name="@rock1@255" parent="." instance=ExtResource( 4 )]
+transform = Transform( -1.30781, 0, -0.0230241, 0, 1.0925, 0, 0.0141575, 0, -0.804172, -58.2726, 11.9878, 90.5135 )
+
+[node name="@rock2@256" parent="." instance=ExtResource( 3 )]
+transform = Transform( -0.794365, 0, -0.486151, 0, 1.07003, 0, 0.437027, 0, -0.714098, -61.2148, 11.2557, 86.1047 )
+
+[node name="@rock3@257" parent="." instance=ExtResource( 2 )]
+transform = Transform( -1.1202, 0, -0.0608568, 0, 1.27731, 0, 0.0603512, 0, -1.1109, -72.2177, 12.2689, 85.9531 )
+
+[node name="@rock3@258" parent="." instance=ExtResource( 2 )]
+transform = Transform( -0.0306065, 0, 1.41919, 0, 1.11694, 0, -0.694061, 0, -0.0149683, -63.4278, -4.7059, 22.1217 )
+
+[node name="@rock1@259" parent="." instance=ExtResource( 4 )]
+transform = Transform( 0.405248, 0, 1.07824, 0, 0.726171, 0, -1.00518, 0, 0.377788, -75.7538, 1.0293, 71.3708 )
+
+[node name="@rock2@260" parent="." instance=ExtResource( 3 )]
+transform = Transform( -1.09453, 0, 0.56687, 0, 1.08412, 0, -0.488271, 0, -0.942765, -75.6736, 1.56486, 83.9954 )
+
+[node name="@rock1@261" parent="." instance=ExtResource( 4 )]
+transform = Transform( 0.649127, 0, 0.835314, 0, 0.586381, 0, -0.605914, 0, 0.470859, -75.8376, 0.469261, 72.891 )
+
+[node name="@rock3@262" parent="." instance=ExtResource( 2 )]
+transform = Transform( 0.337654, 0, 1.17698, 0, 1.2105, 0, -1.31109, 0, 0.376126, -74.3946, 10.1136, 75.8725 )
+
+[node name="@rock2@263" parent="." instance=ExtResource( 3 )]
+transform = Transform( 0.431925, 0, -0.619613, 0, 0.523507, 0, 1.03694, 0, 0.72284, -107.946, -8.09303, 74.1872 )
+
+[node name="@rock3@264" parent="." instance=ExtResource( 2 )]
+transform = Transform( -0.723568, 0, 0.932502, 0, 0.996334, 0, -1.15207, 0, -0.893943, -107.038, -6.87579, 46.0213 )
+
+[node name="@rock2@265" parent="." instance=ExtResource( 3 )]
+transform = Transform( 1.16941, 0, -0.513596, 0, 1.47207, 0, 0.266327, 0, 0.606403, -97.9624, -4.70589, 38.5813 )
+
+[node name="@rock3@266" parent="." instance=ExtResource( 2 )]
+transform = Transform( 0.609513, 0, 0.294184, 0, 0.990838, 0, -0.3122, 0, 0.646838, -98.1031, -4.7059, 48.07 )
+
+[node name="@rock1@267" parent="." instance=ExtResource( 4 )]
+transform = Transform( 0.0742019, 0, 0.837799, 0, 0.773239, 0, -1.16425, 0, 0.103115, -87.6786, -7.33637, 25.9035 )
+
+[node name="@rock2@268" parent="." instance=ExtResource( 3 )]
+transform = Transform( 0.930402, 0, -1.1401, 0, 1.29726, 0, 0.962545, 0, 0.785504, -92.0085, -10, 6.46007 )
+
+[node name="@rock3@269" parent="." instance=ExtResource( 2 )]
+transform = Transform( 0.526762, 0, 0.19494, 0, 1.09121, 0, -0.447003, 0, 1.20788, -99.739, -10, -7.94729 )
+
+[node name="@rock2@270" parent="." instance=ExtResource( 3 )]
+transform = Transform( 0.13835, 0, -0.507092, 0, 1.2999, 0, 0.799132, 0, 0.218027, -97.4044, -10, -6.89253 )
+
+[node name="@rock3@271" parent="." instance=ExtResource( 2 )]
+transform = Transform( -0.459471, 0, 0.27477, 0, 0.815534, 0, -0.345917, 0, -0.578443, -79.3099, -8.8235, 2.23517 )
+
+[node name="@rock1@272" parent="." instance=ExtResource( 4 )]
+transform = Transform( -1.28974, 0, -0.410248, 0, 1.17407, 0, 0.205123, 0, -0.644869, -72.6597, -6.77653, -0.0114765 )
+
+[node name="@rock1@273" parent="." instance=ExtResource( 4 )]
+transform = Transform( 0.224543, 0, 1.35097, 0, 1.24797, 0, -0.654404, 0, 0.108768, -54.8437, 17.6471, 75.8477 )
+
+[node name="@rock2@274" parent="." instance=ExtResource( 3 )]
+transform = Transform( -0.938181, 0, -0.649423, 0, 1.42667, 0, 0.439855, 0, -0.635431, -62.0355, 17.6471, 74.0139 )
+
+[node name="@rock2@275" parent="." instance=ExtResource( 3 )]
+transform = Transform( -0.832629, 0, -1.14589, 0, 1.03388, 0, 1.08076, 0, -0.785305, -60.7095, 17.6471, 71.8796 )
+
+[node name="@rock3@276" parent="." instance=ExtResource( 2 )]
+transform = Transform( -0.53454, 0, -0.616768, 0, 0.754088, 0, 0.999052, 0, -0.865857, -28.547, 17.6471, 61.6994 )
+
+[node name="@rock1@277" parent="." instance=ExtResource( 4 )]
+transform = Transform( -0.23178, 0, 1.02156, 0, 1.07195, 0, -1.09196, 0, -0.247754, -40.6714, 17.6471, 75.3069 )
+
+[node name="@rock3@278" parent="." instance=ExtResource( 2 )]
+transform = Transform( -0.596864, 0, 0.400577, 0, 1.21303, 0, -0.58283, 0, -0.868423, -41.5934, 17.6471, 80.8405 )
+
+[node name="@rock2@279" parent="." instance=ExtResource( 3 )]
+transform = Transform( 1.04499, 0, 0.563313, 0, 1.34635, 0, -0.597455, 0, 1.10833, -49.7578, 17.6471, 89.0337 )
+
+[node name="@rock3@280" parent="." instance=ExtResource( 2 )]
+transform = Transform( 0.840764, 0, -0.120921, 0, 1.20756, 0, 0.101076, 0, 0.702777, -45.6178, 17.6471, 94.0956 )
+
+[node name="@rock1@281" parent="." instance=ExtResource( 4 )]
+transform = Transform( -0.114589, 0, -0.905616, 0, 1.42241, 0, 0.817031, 0, -0.103381, -22.0318, 17.6471, 84.5649 )
+
+[node name="@rock2@282" parent="." instance=ExtResource( 3 )]
+transform = Transform( -0.94812, 0, -0.117298, 0, 0.616091, 0, 0.149196, 0, -1.20595, -32.5164, 17.6471, 82.6192 )
+
+[node name="@rock1@283" parent="." instance=ExtResource( 4 )]
+transform = Transform( 1.08934, 0, -0.139998, 0, 1.29536, 0, 0.118921, 0, 0.925341, -40.3402, 17.6471, 77.8995 )
+
+[node name="@rock1@284" parent="." instance=ExtResource( 4 )]
+transform = Transform( -0.251047, 0, -0.569701, 0, 0.722176, 0, 0.82806, 0, -0.364896, -62.3664, 17.6471, 62.0693 )
+
+[node name="@rock2@285" parent="." instance=ExtResource( 3 )]
+transform = Transform( 0.657186, 0, 0.874962, 0, 1.4639, 0, -0.442664, 0, 0.332486, -63.6672, 17.6471, 63.4637 )
+
+[node name="@rock3@286" parent="." instance=ExtResource( 2 )]
+transform = Transform( 0.161966, 0, -1.48687, 0, 1.07492, 0, 1.35308, 0, 0.147392, -29.3728, 17.6471, 55.1118 )
+
+[node name="@rock1@287" parent="." instance=ExtResource( 4 )]
+transform = Transform( 0.76759, 0, 0.45965, 0, 1.14915, 0, -0.448672, 0, 0.749257, -23.488, 17.6471, 64.5437 )
+
+[node name="@rock2@288" parent="." instance=ExtResource( 3 )]
+transform = Transform( 0.203852, 0, 1.03247, 0, 1.0988, 0, -0.826077, 0, 0.163101, -11.0538, 17.6471, 69.3499 )
+
+[node name="@rock2@289" parent="." instance=ExtResource( 3 )]
+transform = Transform( -0.622275, 0, -0.18418, 0, 0.751956, 0, 0.313316, 0, -1.05857, -7.89802, 17.6471, 71.4032 )
+
+[node name="@rock1@290" parent="." instance=ExtResource( 4 )]
+transform = Transform( -0.555658, 0, -0.346474, 0, 1.08602, 0, 0.735289, 0, -1.17922, -16.047, 17.6471, 73.2075 )
+
+[node name="@rock1@291" parent="." instance=ExtResource( 4 )]
+transform = Transform( 0.840616, 0, 0.141039, 0, 1.48325, 0, -0.136533, 0, 0.813761, -20.3914, 17.6471, 67.3526 )
+
+[node name="@rock1@292" parent="." instance=ExtResource( 4 )]
+transform = Transform( 1.17268, 0, -0.534343, 0, 1.482, 0, 0.533065, 0, 1.16987, -149.066, -10, 43.356 )
+
+[node name="@rock3@293" parent="." instance=ExtResource( 2 )]
+transform = Transform( 0.82839, 0, -1.03936, 0, 1.1319, 0, 0.829583, 0, 0.661196, -41.9028, 17.6471, 58.0154 )
+
+[node name="@rock2@294" parent="." instance=ExtResource( 3 )]
+transform = Transform( 0.0905022, 0, 0.636988, 0, 1.10462, 0, -1.36381, 0, 0.193768, 33.7398, 14.5517, 76.479 )
+
+[node name="@rock3@295" parent="." instance=ExtResource( 2 )]
+transform = Transform( -0.197329, 0, 0.525829, 0, 0.78555, 0, -1.36996, 0, -0.51411, 22.9967, 20, 79.6999 )
+
+[node name="@rock3@296" parent="." instance=ExtResource( 2 )]
+transform = Transform( 0.791969, 0, -0.890696, 0, 1.36478, 0, 1.05512, 0, 0.93817, 25.2683, 20, 86.5728 )
+
+[node name="@rock3@297" parent="." instance=ExtResource( 2 )]
+transform = Transform( -0.905248, 0, 0.613544, 0, 1.05703, 0, -0.360882, 0, -0.532461, 26.0607, 20, 92.4851 )
+
+[node name="@rock3@298" parent="." instance=ExtResource( 2 )]
+transform = Transform( 0.0676089, 0, -1.00937, 0, 1.40733, 0, 0.93105, 0, 0.0623632, 31.7986, 20, 88.8728 )
+
+[node name="@rock2@299" parent="." instance=ExtResource( 3 )]
+transform = Transform( 0.961515, 0, -1.01945, 0, 1.08225, 0, 0.48152, 0, 0.454157, 30.4012, 20, 87.9978 )
+
+[node name="@rock1@300" parent="." instance=ExtResource( 4 )]
+transform = Transform( -0.633346, 0, 0.484835, 0, 0.850069, 0, -0.833575, 0, -1.08891, 39.6862, 20, 94.3081 )
+
+[node name="@rock1@301" parent="." instance=ExtResource( 4 )]
+transform = Transform( 0.557342, 0, -0.630286, 0, 0.964512, 0, 0.6152, 0, 0.544002, 41.7364, 20, 95.9662 )
+
+[node name="@rock2@302" parent="." instance=ExtResource( 3 )]
+transform = Transform( 0.560133, 0, 0.811485, 0, 1.11663, 0, -0.583623, 0, 0.402849, 39.0373, 20, 84.464 )
+
+[node name="@rock1@303" parent="." instance=ExtResource( 4 )]
+transform = Transform( 0.0273386, 0, -0.528789, 0, 1.08055, 0, 1.11284, 0, 0.0575343, 39.0292, 20.1595, 84.6035 )
+
+[node name="@rock2@304" parent="." instance=ExtResource( 3 )]
+transform = Transform( -0.0554432, 0, -0.718304, 0, 1.00253, 0, 0.587358, 0, -0.045336, 29.3001, 20, 98.7285 )
+
+[node name="@rock2@305" parent="." instance=ExtResource( 3 )]
+transform = Transform( 0.323023, 0, 0.960428, 0, 1.1893, 0, -1.21296, 0, 0.407958, 59.919, 17.6471, -49.7252 )
+
+[node name="@rock1@306" parent="." instance=ExtResource( 4 )]
+transform = Transform( 0.635231, 0, 0.75223, 0, 1.35858, 0, -0.431253, 0, 0.364177, 41.9216, 17.6471, -54.2575 )
+
+[node name="@rock1@307" parent="." instance=ExtResource( 4 )]
+transform = Transform( -0.329855, 0, -0.701673, 0, 1.21733, 0, 0.489353, 0, -0.230044, 41.0179, 18.5905, -54.0627 )
+
+[node name="@rock3@308" parent="." instance=ExtResource( 2 )]
+transform = Transform( 0.817009, 0, -0.268773, 0, 1.17625, 0, 0.464842, 0, 1.41301, 49.9403, 17.6471, -47.3328 )
+
+[node name="@rock1@309" parent="." instance=ExtResource( 4 )]
+transform = Transform( -0.491483, 0, -0.936641, 0, 1.49938, 0, 0.859247, 0, -0.450873, 57.0892, 17.6471, -42.817 )
+
+[node name="@rock2@310" parent="." instance=ExtResource( 3 )]
+transform = Transform( -0.902348, 0, -0.0558544, 0, 0.533792, 0, 0.0751529, 0, -1.21412, 54.3435, 17.6471, -33.4261 )
+
+[node name="@rock3@311" parent="." instance=ExtResource( 2 )]
+transform = Transform( -0.0406918, 0, -1.38607, 0, 1.32186, 0, 0.957556, 0, -0.0281117, 61.5579, 17.6471, -45.0524 )
+
+[node name="@rock1@312" parent="." instance=ExtResource( 4 )]
+transform = Transform( -0.599252, 0, -0.191948, 0, 0.943942, 0, 0.272304, 0, -0.850117, 60.1455, 17.6471, -61.0611 )
+
+[node name="@rock2@313" parent="." instance=ExtResource( 3 )]
+transform = Transform( -0.313992, 0, -0.835422, 0, 0.992216, 0, 1.10925, 0, -0.416911, 33.6619, 17.6471, -54.7999 )
+
+[node name="@rock2@314" parent="." instance=ExtResource( 3 )]
+transform = Transform( -0.988094, 0, -0.812323, 0, 0.629392, 0, 0.413762, 0, -0.503292, 19.9381, 17.6471, -56.4546 )
+
+[node name="@rock1@315" parent="." instance=ExtResource( 4 )]
+transform = Transform( -0.629547, 0, -0.0102974, 0, 0.718992, 0, 0.0242634, 0, -1.48338, 17.7775, 17.6471, -56.6438 )
+
+[node name="@rock2@316" parent="." instance=ExtResource( 3 )]
+transform = Transform( -1.15793, 0, -0.488804, 0, 1.09706, 0, 0.372886, 0, -0.883333, -5.21193, 17.6471, -99.5097 )
+
+[node name="@rock1@317" parent="." instance=ExtResource( 4 )]
+transform = Transform( 1.11142, 0, 0.418194, 0, 0.524325, 0, -0.391553, 0, 1.04061, -18.7116, 17.6471, -94.5845 )
+
+[node name="@rock1@318" parent="." instance=ExtResource( 4 )]
+transform = Transform( -1.184, 0, -0.220724, 0, 1.4745, 0, 0.107613, 0, -0.577253, -16.6459, 17.6471, -75.4214 )
+
+[node name="@rock2@319" parent="." instance=ExtResource( 3 )]
+transform = Transform( -1.06081, 0, 0.261929, 0, 0.973381, 0, -0.142093, 0, -0.575477, -10.3358, 17.6471, -72.4371 )
+
+[node name="@rock1@320" parent="." instance=ExtResource( 4 )]
+transform = Transform( -0.323841, 0, 1.2308, 0, 0.507999, 0, -0.99898, 0, -0.262846, -9.21975, 14.8828, -57.0123 )
+
+[node name="@rock2@321" parent="." instance=ExtResource( 3 )]
+transform = Transform( 0.145208, 0, 0.756739, 0, 0.787291, 0, -1.43355, 0, 0.275079, -29.5845, 16.8546, -32.1009 )
+
+[node name="@rock2@322" parent="." instance=ExtResource( 3 )]
+transform = Transform( 0.851918, 0, 0.840708, 0, 1.20814, 0, -0.981201, 0, 0.994283, -36.1446, 17.6471, -28.0404 )
+
+[node name="@rock1@323" parent="." instance=ExtResource( 4 )]
+transform = Transform( 0.743918, 0, 0.98715, 0, 0.597231, 0, -0.667478, 0, 0.503013, -25.0357, 17.6471, -20.5957 )
+
+[node name="@rock1@324" parent="." instance=ExtResource( 4 )]
+transform = Transform( -0.0248914, 0, 1.29654, 0, 1.2064, 0, -1.13003, 0, -0.0216948, -15.5333, 17.6471, -19.9682 )
+
+[node name="@rock2@325" parent="." instance=ExtResource( 3 )]
+transform = Transform( 0.708697, 0, 0.568171, 0, 0.613784, 0, -0.377309, 0, 0.470629, -6.18665, 17.6471, -14.5717 )
+
+[node name="@rock3@326" parent="." instance=ExtResource( 2 )]
+transform = Transform( -0.220161, 0, -1.14837, 0, 0.568744, 0, 0.57471, 0, -0.110182, -6.60013, 17.6471, -12.7578 )
+
+[node name="@rock2@327" parent="." instance=ExtResource( 3 )]
+transform = Transform( -0.917105, 0, 0.831222, 0, 1.1201, 0, -0.609594, 0, -0.672579, -39.2627, 17.6471, -23.1145 )
+
+[node name="@rock3@328" parent="." instance=ExtResource( 2 )]
+transform = Transform( -1.03115, 0, 0.162963, 0, 1.32499, 0, -0.151447, 0, -0.958281, -48.9586, 17.6471, -27.1231 )
+
+[node name="@rock1@329" parent="." instance=ExtResource( 4 )]
+transform = Transform( -0.649515, 0, -0.114461, 0, 0.726137, 0, 0.157766, 0, -0.895249, -73.385, 17.6471, -44.3723 )
+
+[node name="@rock3@330" parent="." instance=ExtResource( 2 )]
+transform = Transform( 0.712685, 0, -0.505958, 0, 0.868749, 0, 0.796419, 0, 1.12182, -86.4246, 17.6471, -50.1049 )
+
+[node name="@rock3@331" parent="." instance=ExtResource( 2 )]
+transform = Transform( -0.701176, 0, -0.464993, 0, 0.746467, 0, 0.561764, 0, -0.8471, -88.9217, 17.6471, -51.8156 )
+
+[node name="@rock1@332" parent="." instance=ExtResource( 4 )]
+transform = Transform( 0.712871, 0, 0.871824, 0, 0.693615, 0, -0.444174, 0, 0.363191, 13.5386, 17.6471, -103.892 )
+
+[node name="@rock3@333" parent="." instance=ExtResource( 2 )]
+transform = Transform( 0.8366, 0, -1.00326, 0, 0.912077, 0, 0.526563, 0, 0.439089, 28.4293, 17.6471, -103.834 )
+
+[node name="@rock3@334" parent="." instance=ExtResource( 2 )]
+transform = Transform( 0.445228, 0, -1.13113, 0, 0.938843, 0, 0.540635, 0, 0.212801, 40.1276, 17.6471, -108.386 )
+
+[node name="@rock3@335" parent="." instance=ExtResource( 2 )]
+transform = Transform( -0.24906, 0, 1.05563, 0, 0.665062, 0, -1.17582, 0, -0.277417, 46.2106, 17.6471, -106.567 )
+
+[node name="@rock2@336" parent="." instance=ExtResource( 3 )]
+transform = Transform( 0.43165, 0, 1.23429, 0, 1.49982, 0, -0.47586, 0, 0.166415, 50.7977, 17.6471, -101.951 )
+
+[node name="@rock3@337" parent="." instance=ExtResource( 2 )]
+transform = Transform( 0.370037, 0, -1.18641, 0, 1.25119, 0, 1.41772, 0, 0.442183, 69.5886, 17.6471, -155.716 )
+
+[node name="@rock2@338" parent="." instance=ExtResource( 3 )]
+transform = Transform( 0.679969, 0, -0.336797, 0, 0.996237, 0, 0.493226, 0, 0.995789, 68.9802, 18.2935, -154.737 )
+
+[node name="@rock2@339" parent="." instance=ExtResource( 3 )]
+transform = Transform( -1.1577, 0, -0.220921, 0, 1.07107, 0, 0.0954101, 0, -0.499983, 91.9832, 17.6471, -143.796 )
+
+[node name="@rock1@340" parent="." instance=ExtResource( 4 )]
+transform = Transform( 0.21534, 0, 1.41105, 0, 0.756662, 0, -0.794061, 0, 0.121181, 96.9721, 17.6471, -137.325 )
+
+[node name="@rock3@341" parent="." instance=ExtResource( 2 )]
+transform = Transform( -1.24614, 0, 0.472572, 0, 0.683812, 0, -0.470469, 0, -1.2406, 98.6174, 17.6471, -146.646 )
+
+[node name="@rock3@342" parent="." instance=ExtResource( 2 )]
+transform = Transform( -0.143171, 0, -0.641104, 0, 1.37436, 0, 0.679593, 0, -0.151767, 89.002, 17.6471, -164.515 )
+
+[node name="@rock3@343" parent="." instance=ExtResource( 2 )]
+transform = Transform( -1.22536, 0, 0.235056, 0, 0.769295, 0, -0.195429, 0, -1.01879, 83.5822, 17.6471, -164.809 )
+
+[node name="@rock1@344" parent="." instance=ExtResource( 4 )]
+transform = Transform( 0.43107, 0, 1.06113, 0, 0.89572, 0, -0.975544, 0, 0.396303, 76.0413, 17.6471, -151.817 )
+
+[node name="@rock1@345" parent="." instance=ExtResource( 4 )]
+transform = Transform( 1.23157, 0, 0.389308, 0, 0.945713, 0, -0.391731, 0, 1.23923, 80.9933, 17.6471, -151.093 )
+
+[node name="@rock3@346" parent="." instance=ExtResource( 2 )]
+transform = Transform( 0.571783, 0, -0.00422846, 0, 0.980715, 0, 0.0078134, 0, 1.05655, 75.8003, 18.5197, -151.85 )
+
+[node name="@rock2@347" parent="." instance=ExtResource( 3 )]
+transform = Transform( 1.04222, 0, -0.862504, 0, 1.29768, 0, 0.629007, 0, 0.760071, 47.2296, 4.19482, -114.884 )
+
+[node name="@rock1@348" parent="." instance=ExtResource( 4 )]
+transform = Transform( -1.00814, 0, -0.479044, 0, 0.821573, 0, 0.291121, 0, -0.61266, 37.918, 4.88036, -114.781 )
+
+[node name="@rock2@349" parent="." instance=ExtResource( 3 )]
+transform = Transform( -0.46533, 0, -0.778773, 0, 1.26723, 0, 0.898382, 0, -0.536798, 26.2311, -0.181215, -115.539 )
+
+[node name="@rock1@350" parent="." instance=ExtResource( 4 )]
+transform = Transform( 0.24715, 0, 1.21674, 0, 1.12407, 0, -0.548601, 0, 0.111434, 6.0089, 9.04663, -114.158 )
+
+[node name="@rock2@351" parent="." instance=ExtResource( 3 )]
+transform = Transform( 0.720004, 0, -0.419643, 0, 0.985376, 0, 0.419468, 0, 0.719704, 0.86654, 1.05564, -115.354 )
+
+[node name="@rock3@352" parent="." instance=ExtResource( 2 )]
+transform = Transform( -0.914337, 0, -0.972477, 0, 1.2637, 0, 0.667933, 0, -0.628001, 16.7789, 3.17813, -115.036 )
+
+[node name="@rock3@353" parent="." instance=ExtResource( 2 )]
+transform = Transform( -0.646506, 0, -0.864797, 0, 0.903504, 0, 0.460468, 0, -0.344237, 16.4764, 6.13725, -114.593 )
+
+[node name="@rock3@354" parent="." instance=ExtResource( 2 )]
+transform = Transform( -0.362339, 0, -0.919388, 0, 1.34204, 0, 0.512118, 0, -0.20183, 8.60458, 10.3753, -113.959 )
+
+[node name="@rock3@355" parent="." instance=ExtResource( 2 )]
+transform = Transform( -0.412487, 0, -0.462673, 0, 1.39319, 0, 0.90198, 0, -0.804143, -5.27183, 4.92199, -114.775 )
+
+[node name="@rock2@356" parent="." instance=ExtResource( 3 )]
+transform = Transform( 0.733278, 0, 0.542807, 0, 1.41325, 0, -0.75853, 0, 1.0247, -9.25288, -5.50546, -116.335 )
+
+[node name="@rock2@357" parent="." instance=ExtResource( 3 )]
+transform = Transform( 0.283354, 0, -0.477476, 0, 1.2628, 0, 0.725807, 0, 0.430724, -16.0521, 7.99451, -114.316 )
+
+[node name="@rock1@358" parent="." instance=ExtResource( 4 )]
+transform = Transform( 1.07536, 0, 0.371184, 0, 0.72062, 0, -0.173092, 0, 0.501465, -11.8836, 14.3717, -113.361 )
+
+[node name="@rock2@359" parent="." instance=ExtResource( 3 )]
+transform = Transform( 1.03271, 0, 0.991853, 0, 1.25067, 0, -0.573205, 0, 0.59682, -11.7325, 16.6229, -113.025 )
+
+[node name="@rock1@360" parent="." instance=ExtResource( 4 )]
+transform = Transform( 0.0990836, 0, -0.811691, 0, 1.45979, 0, 1.14593, 0, 0.139884, -8.35808, 17.6471, -92.1119 )
+
+[node name="@rock3@361" parent="." instance=ExtResource( 2 )]
+transform = Transform( 1.06726, 0, 0.0635112, 0, 0.897021, 0, -0.0501663, 0, 0.84301, -13.5065, 17.6471, -99.7179 )
+
+[node name="@rock2@362" parent="." instance=ExtResource( 3 )]
+transform = Transform( 0.570013, 0, 0.295653, 0, 1.32497, 0, -0.381583, 0, 0.735685, -17.6268, 17.6471, -105.631 )
+
+[node name="@rock2@89" parent="." instance=ExtResource( 3 )]
+transform = Transform( 1.34205, 0, -0.178333, 0, 1.41881, 0, 0.147599, 0, 1.11076, 35.8976, 10.3999, -10.9854 )
+
+[node name="@rock1@90" parent="." instance=ExtResource( 4 )]
+transform = Transform( 0.618164, 0, -0.45576, 0, 1.0395, 0, 0.415493, 0, 0.563548, 43.0632, 10.0137, -11.0432 )
+
+[node name="@rock2@91" parent="." instance=ExtResource( 3 )]
+transform = Transform( 0.596499, 0, 0.627389, 0, 0.527711, 0, -0.984577, 0, 0.9361, 42.2182, 4.58957, -11.8547 )
+
+[node name="@rock1@92" parent="." instance=ExtResource( 4 )]
+transform = Transform( 0.230738, 0, 1.37143, 0, 1.00073, 0, -0.842042, 0, 0.14167, 36.652, 4.7738, -11.8271 )
+
+[node name="@rock1@93" parent="." instance=ExtResource( 4 )]
+transform = Transform( -0.722411, 0, 0.191166, 0, 0.891241, 0, -0.280721, 0, -1.06083, 40.2445, 10.8878, -10.9124 )
+
+[node name="@rock3@94" parent="." instance=ExtResource( 2 )]
+transform = Transform( -0.591814, 0, 0.196997, 0, 0.781873, 0, -0.223951, 0, -0.672787, 31.9174, 11.4302, -10.8312 )
+
+[node name="@rock2@95" parent="." instance=ExtResource( 3 )]
+transform = Transform( -1.04841, 0, 0.617093, 0, 0.913326, 0, -0.258557, 0, -0.439275, 30.2976, 7.05061, -11.4865 )
+
+[node name="@rock3@96" parent="." instance=ExtResource( 2 )]
+transform = Transform( -0.76607, 0, 1.09316, 0, 0.510764, 0, -0.972207, 0, -0.681307, 35.8001, 13.5844, -10.5089 )
+
+[node name="@rock2@97" parent="." instance=ExtResource( 3 )]
+transform = Transform( -0.0475601, 0, 1.24472, 0, 0.627717, 0, -1.28588, 0, -0.0491327, 39.7703, 17.6471, -9.01824 )
+
+[node name="@rock2@98" parent="." instance=ExtResource( 3 )]
+transform = Transform( -0.196239, 0, 0.900781, 0, 1.29065, 0, -0.693309, 0, -0.151041, 40.8629, 17.6471, -6.57446 )
+
+[node name="@rock1@99" parent="." instance=ExtResource( 4 )]
+transform = Transform( -0.607393, 0, 0.197243, 0, 0.768524, 0, -0.270879, 0, -0.834152, 41.5791, 17.6471, -5.1983 )
+
+[node name="@rock1@100" parent="." instance=ExtResource( 4 )]
+transform = Transform( 0.232512, 0, 1.10122, 0, 0.591447, 0, -0.610556, 0, 0.128913, 34.8661, 17.6471, -5.06409 )
+
+[node name="@rock2@101" parent="." instance=ExtResource( 3 )]
+transform = Transform( -0.590875, 0, -0.137004, 0, 1.3953, 0, 0.121308, 0, -0.523178, 31.3028, 17.6471, -6.31593 )
+
+[node name="@rock2@102" parent="." instance=ExtResource( 3 )]
+transform = Transform( 0.175145, 0, -0.994583, 0, 1.34353, 0, 0.843253, 0, 0.148496, 34.6368, 17.6471, -7.40133 )
+
+[node name="@rock3@103" parent="." instance=ExtResource( 2 )]
+transform = Transform( -0.534078, 0, 0.901734, 0, 0.866958, 0, -0.772683, 0, -0.457644, 28.6423, 17.6471, -7.10694 )
+
+[node name="@rock1@104" parent="." instance=ExtResource( 4 )]
+transform = Transform( 0.575385, 0, 1.21142, 0, 0.702716, 0, -1.2112, 0, 0.57528, 26.5227, 17.6471, -3.90118 )
+
+[node name="@rock3@105" parent="." instance=ExtResource( 2 )]
+transform = Transform( -1.12673, 0, -0.347907, 0, 0.519479, 0, 0.164692, 0, -0.533369, 32.6981, 17.6471, -8.46087 )
+
+[node name="@rock3@106" parent="." instance=ExtResource( 2 )]
+transform = Transform( 0.386267, 0, 0.99047, 0, 0.876958, 0, -0.941674, 0, 0.367238, 27.8606, 10.5242, -10.9668 )
+
+[node name="@rock3@107" parent="." instance=ExtResource( 2 )]
+transform = Transform( -0.862458, 0, -0.238343, 0, 1.15164, 0, 0.34043, 0, -1.23186, 43.106, -1.82216, -12.814 )
+
+[node name="@rock1@108" parent="." instance=ExtResource( 4 )]
+transform = Transform( 0.107321, 0, 1.38674, 0, 1.49014, 0, -1.0028, 0, 0.0776075, 31.5024, -0.104847, -12.5571 )
+
+[node name="@rock2@109" parent="." instance=ExtResource( 3 )]
+transform = Transform( -1.02936, 0, -0.270509, 0, 1.34549, 0, 0.197099, 0, -0.750012, 32.007, 4.18604, -11.9151 )

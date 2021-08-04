@@ -1,5 +1,5 @@
 tool
-extends Spatial
+extends Node
 
 export var noise_period = 64
 export var noise_octaves = 3
@@ -62,7 +62,8 @@ func _ready():
 	mesh_instance.create_trimesh_collision()
 	mesh_instance.set_surface_material(0, load("res://shaders/terrain_shader.tres"))
 	mesh_instance.name = "world_map"
-	add_child(mesh_instance)
+	$terrain.add_child(mesh_instance)
+	mesh_instance.set_owner($terrain)
 	
 	
 	

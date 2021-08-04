@@ -1,0 +1,28 @@
+[gd_scene load_steps=4 format=2]
+
+[ext_resource path="res://scenes/static_objects/rock3.tscn" type="PackedScene" id=1]
+[ext_resource path="res://scenes/static_objects/rock1.tscn" type="PackedScene" id=2]
+[ext_resource path="res://scenes/static_objects/rock2.tscn" type="PackedScene" id=3]
+
+[node name="terrain" type="Spatial"]
+
+[node name="rock2" type="Spatial" parent="." instance=ExtResource( 3 )]
+transform = Transform( 1.34205, 0, -0.178333, 0, 1.41881, 0, 0.147599, 0, 1.11076, 37.9532, 11.4571, -10.8272 )
+
+[node name="rock1" type="Spatial" parent="." instance=ExtResource( 2 )]
+transform = Transform( 0.618164, 0, -0.45576, 0, 1.0395, 0, 0.415493, 0, 0.563548, 44.9225, 13.7053, -10.4909 )
+
+[node name="@rock2@88" type="Spatial" parent="." instance=ExtResource( 3 )]
+transform = Transform( 0.596499, 0, 0.627389, 0, 0.527711, 0, -0.984577, 0, 0.9361, 35.0901, 15.2784, -10.2555 )
+
+[node name="@rock1@89" type="Spatial" parent="." instance=ExtResource( 2 )]
+transform = Transform( 0.230738, 0, 1.37143, 0, 1.00073, 0, -0.842042, 0, 0.14167, 41.4126, 5.72647, -11.6846 )
+
+[node name="@rock1@90" type="Spatial" parent="." instance=ExtResource( 2 )]
+transform = Transform( -0.722411, 0, 0.191166, 0, 0.891241, 0, -0.280721, 0, -1.06083, 35.708, 4.98191, -11.796 )
+
+[node name="rock3" type="Spatial" parent="." instance=ExtResource( 1 )]
+transform = Transform( -0.591814, 0, 0.196997, 0, 0.781873, 0, -0.223951, 0, -0.672787, 43.1376, 16.8753, -10.0166 )
+
+[node name="@rock2@91" type="Spatial" parent="." instance=ExtResource( 3 )]
+transform = Transform( -1.04841, 0, 0.617093, 0, 0.913326, 0, -0.258557, 0, -0.439275, 38.0604, 16.6233, -10.0543 )

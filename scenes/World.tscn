@@ -3,7 +3,7 @@
 [ext_resource path="res://scenes/PlayerCamera.tscn" type="PackedScene" id=1]
 [ext_resource path="res://scenes/Object_placement_tool.tscn" type="PackedScene" id=2]
 [ext_resource path="res://scripts/World.gd" type="Script" id=3]
-[ext_resource path="res://assets/depthmap.png" type="Image" id=5]
+[ext_resource path="res://assets/depthmap.png" type="Image" id=4]
 [ext_resource path="res://scenes/UI.gd" type="Script" id=10]
 [ext_resource path="res://assets/Coder's Crux.ttf" type="DynamicFontData" id=13]
 
@@ -22,6 +22,8 @@ font_data = ExtResource( 13 )
 [sub_resource type="Theme" id=4]
 
 [node name="level_editor" type="Node"]
+script = ExtResource( 3 )
+height_map = ExtResource( 4 )
 
 [node name="world_environment" type="WorldEnvironment" parent="."]
 environment = SubResource( 2 )
@@ -35,9 +37,6 @@ directional_shadow_mode = 1
 transform = Transform( -0.941329, 0.179856, -0.285573, 0.00118152, 0.847917, 0.530128, 0.337489, 0.498687, -0.798381, 54.1695, 42.8855, -40.4128 )
 
 [node name="terrain" type="Spatial" parent="."]
-script = ExtResource( 3 )
-noise_seed = 24091985
-height_map = ExtResource( 5 )
 
 [node name="UI" type="Control" parent="."]
 anchor_right = 0.998047
@@ -230,6 +229,7 @@ __meta__ = {
 }
 
 [node name="object_placement_tool" parent="." instance=ExtResource( 2 )]
+
 [connection signal="file_selected" from="UI/Levels" to="UI" method="_on_Levels_file_selected"]
 [connection signal="pressed" from="UI/Objects/TabContainer/Terrain/ScrollContainer/VBoxContainer/HBoxContainer/Rocks" to="UI" method="_on_Rocks_pressed"]
 [connection signal="pressed" from="UI/Objects/TabContainer/Terrain/ScrollContainer/VBoxContainer/HBoxContainer/Balls" to="UI" method="_on_Balls_pressed"]

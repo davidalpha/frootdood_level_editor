@@ -40,7 +40,7 @@ func _on_Balls_pressed():
 
 
 func _on_save_pressed():
-	var terrain = get_node("/root/level_editor/terrain")
+	var terrain = get_node("/root/level_editor/")
 	terrain.save_scene()
 
 
@@ -50,7 +50,7 @@ func _on_load_pressed():
 
 
 func _on_Levels_file_selected(path):
-	var terrain = get_node("/root/level_editor/terrain")
+	var terrain = get_node("/root/level_editor/")
 	terrain.free()
 	print(path)
 	var loaded_level = load(path);
