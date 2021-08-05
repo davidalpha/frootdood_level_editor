@@ -63,7 +63,7 @@ func _ready():
 	mesh_instance.set_surface_material(0, load("res://shaders/terrain_shader.tres"))
 	mesh_instance.name = "world_map"
 	$terrain.add_child(mesh_instance)
-	mesh_instance.set_owner($terrain)
+	_recursively_set_owner($terrain, $terrain)
 	
 	
 	
@@ -74,3 +74,7 @@ func save_scene():
 	var timestamp = str(OS.get_unix_time())
 	ResourceSaver.save(("res://saved_levels/level" + timestamp + ".tscn"), packed_scene)
 		
+func _recursively_set_owner(root: Node, owner: Node) -> void:
+	for child in root.get_children():
+		child.owner = owner
+		_recursively_set_owner(child, owner)

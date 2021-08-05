@@ -48,9 +48,8 @@ func _on_load_pressed():
 	$Levels.popup()
 	
 
-
 func _on_Levels_file_selected(path):
-	var terrain = get_node("/root/level_editor/")
+	var terrain = get_node("/root/level_editor/terrain")
 	terrain.free()
 	print(path)
 	var loaded_level = load(path);

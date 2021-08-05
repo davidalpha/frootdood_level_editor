@@ -229,7 +229,6 @@ __meta__ = {
 }
 
 [node name="object_placement_tool" parent="." instance=ExtResource( 2 )]
-
 [connection signal="file_selected" from="UI/Levels" to="UI" method="_on_Levels_file_selected"]
 [connection signal="pressed" from="UI/Objects/TabContainer/Terrain/ScrollContainer/VBoxContainer/HBoxContainer/Rocks" to="UI" method="_on_Rocks_pressed"]
 [connection signal="pressed" from="UI/Objects/TabContainer/Terrain/ScrollContainer/VBoxContainer/HBoxContainer/Balls" to="UI" method="_on_Balls_pressed"]
