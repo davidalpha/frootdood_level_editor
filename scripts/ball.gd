@@ -9,5 +9,5 @@ func _ready():
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta):
+func _process(_delta):
 	apply_impulse(transform.basis.z, -transform.basis.z * SPEED)
