@@ -132,6 +132,12 @@ margin_right = 49.0
 margin_bottom = 20.0
 text = "Rocks"
 
+[node name="Grass" type="Button" parent="UI/Objects/TabContainer/Terrain/ScrollContainer/VBoxContainer/HBoxContainer"]
+margin_left = 53.0
+margin_right = 101.0
+margin_bottom = 20.0
+text = "Grass"
+
 [node name="Critters" type="Tabs" parent="UI/Objects/TabContainer"]
 visible = false
 anchor_right = 1.0
@@ -226,6 +232,7 @@ __meta__ = {
 
 [connection signal="file_selected" from="UI/Levels" to="UI" method="_on_Levels_file_selected"]
 [connection signal="pressed" from="UI/Objects/TabContainer/Terrain/ScrollContainer/VBoxContainer/HBoxContainer/Rocks" to="UI" method="_on_Rocks_pressed"]
+[connection signal="pressed" from="UI/Objects/TabContainer/Terrain/ScrollContainer/VBoxContainer/HBoxContainer/Grass" to="UI" method="_on_Grass_pressed"]
 [connection signal="pressed" from="UI/Tools/HBoxContainer/edit" to="UI" method="_on_edit_pressed"]
 [connection signal="pressed" from="UI/Tools/HBoxContainer/save" to="UI" method="_on_save_pressed"]
 [connection signal="pressed" from="UI/Tools/HBoxContainer/load" to="UI" method="_on_load_pressed"]
