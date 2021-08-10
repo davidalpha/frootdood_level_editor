@@ -72,7 +72,12 @@ func save_scene():
 	packed_scene.pack(get_node("/root/level_editor/terrain"))
 	#packed_scene.pack(get_tree().get_current_scene())
 	var timestamp = str(OS.get_unix_time())
-	ResourceSaver.save(("res://saved_levels/level" + timestamp + ".tscn"), packed_scene)
+	var response = ResourceSaver.save(("res://saved_levels/level" + timestamp + ".tscn"), packed_scene)
+	if response == OK:
+		print("Saved level succesfully as level" + timestamp)
+	else:
+		print("Save failed!")
+
 		
 func _recursively_set_owner(root: Node, owner: Node) -> void:
 	for child in root.get_children():
