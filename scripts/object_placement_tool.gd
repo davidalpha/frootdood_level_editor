@@ -3,11 +3,52 @@ extends Spatial
 
 const ray_length = 1000
 var object_type = ""
+var TIME = 0
 var rock1 = preload("res://scenes/static_objects/rock1.tscn")
 var rock2 = preload("res://scenes/static_objects/rock2.tscn")
 var rock3 = preload("res://scenes/static_objects/rock3.tscn")
 var grass = preload("res://scenes/static_objects/grass.tscn")
+var brush_sprite_scene = preload("res://scenes/Brush.tscn")
+
 var rocks_arr = [rock1, rock2, rock3]
+var brush_sprite
+var brush_basis_transform
+var terrain_normal
+var intersect_pos
+
+#onready var UI = get_node("/root/level_editor/UI")
+onready var camera = get_node("/root/level_editor/camera_scene")
+onready var terrain = get_node("/root/level_editor/terrain")
+
+func _ready():
+	brush_sprite = brush_sprite_scene.instance()
+	terrain.add_child(brush_sprite)
+	brush_basis_transform = brush_sprite.transform.basis
+
+func place(object):
+	var object_instance = object.instance()
+	var object_norm = object_instance.transform.basis.y
+	object_instance.transform.origin = Vector3(intersect_pos)
+	
+	# calculate cross between object and terrain normal
+	var cosa = object_norm.dot(terrain_normal)
+	var alpha = acos(cosa)
+	var axis = object_norm.cross(terrain_normal)
+	axis = axis.normalized()
+	
+	# rotate along Y axis randomly
+	object_instance.transform.basis = object_instance.transform.basis.rotated(Vector3(0.0,1.0,0.0), (PI*rand_range(0,2)))
+	
+	# Rotate object to match terrain
+	if !is_nan(alpha) and axis.is_normalized():
+		object_instance.transform.basis = object_instance.transform.basis.rotated(axis, alpha)
+	
+	# scale randomly
+	object_instance.transform.basis = object_instance.transform.basis.scaled(Vector3(rand_range(.5, 1.5),rand_range(.5, 1.5),rand_range(.5, 1.5)))
+	
+	
+	terrain.add_child(object_instance)
+	object_instance.set_owner(terrain)
 
 func _input(event):
 
@@ -15,7 +56,7 @@ func _input(event):
 		var UI = get_node("/root/level_editor/UI")
 		var terrain = get_node("/root/level_editor/terrain")
 		var mode = UI.mode
-
+		
 		if mode == "edit":
 			var space_state = get_world().direct_space_state
 			var camera = get_node("/root/level_editor/camera_scene")
@@ -23,27 +64,20 @@ func _input(event):
 			var to = from + camera.project_ray_normal(event.position) * ray_length
 			var intersection = space_state.intersect_ray(from, to)
 			if intersection:
-				var placement = intersection['position']
+				intersect_pos = intersection['position']
+				terrain_normal = intersection['normal']
+				terrain_normal = terrain_normal.normalized()
 				
 				
 				object_type = UI.object_selected
 				if object_type == "rocks":
 					rocks_arr.shuffle()
 					var rock = rocks_arr[0]
-					var new_meshinstance = rock.instance()
-					new_meshinstance.transform.origin = Vector3(placement)
-					new_meshinstance.transform.basis = new_meshinstance.transform.basis.rotated(Vector3(0.0,1.0,0.0), (PI*rand_range(0,2)))
-					new_meshinstance.transform.basis = new_meshinstance.transform.basis.scaled(Vector3(rand_range(.5, 1.5),rand_range(.5, 1.5),rand_range(.5, 1.5)))
-					terrain.add_child(new_meshinstance)
-					new_meshinstance.set_owner(terrain)
+					place(rock)
+					
 					
 				if object_type == "grass":
-					var new_meshinstance = grass.instance()
-					new_meshinstance.transform.origin = Vector3(placement)
-					new_meshinstance.transform.basis = new_meshinstance.transform.basis.rotated(Vector3(0.0,1.0,0.0), (PI*rand_range(0,2)))
-					new_meshinstance.transform.basis = new_meshinstance.transform.basis.scaled(Vector3(rand_range(.5, 1.5),rand_range(.5, 1.5),rand_range(.5, 1.5)))
-					terrain.add_child(new_meshinstance)
-					new_meshinstance.set_owner(terrain)
+					place(grass)
 					
 	if event is InputEventMouseButton and event.pressed and event.button_index == 2:
 		var UI = get_node("/root/level_editor/UI")
@@ -60,3 +94,35 @@ func _input(event):
 				if object_hit.get_parent().name != "world_map":
 					object_hit.get_parent().queue_free()
 				 
+func _process(delta):
+	TIME += delta
+	var mouse_pos = get_viewport().get_mouse_position()
+	var from = camera.project_ray_origin(mouse_pos)
+	var to = from + camera.project_ray_normal(mouse_pos) * ray_length
+	
+	var space_state = get_world().get_direct_space_state()
+	# use global coordinates, not local to node
+	var intersection = space_state.intersect_ray( from, to )
+	if intersection:
+		
+		var brush_position = intersection["position"]
+
+		brush_sprite.transform.basis = brush_basis_transform
+		brush_sprite.transform.origin = Vector3(brush_position)
+		
+		var object_normal = brush_sprite.transform.basis.y
+		var intersect_normal = intersection['normal']
+		intersect_normal = intersect_normal.normalized()
+		
+		var cosa = object_normal.dot(intersect_normal)
+
+		var alpha = acos(cosa)
+
+		var axis = object_normal.cross(intersect_normal)
+		axis = axis.normalized()
+
+		if !is_nan(alpha) and axis.is_normalized():
+			brush_sprite.transform.basis = brush_sprite.transform.basis.rotated(axis, alpha)
+
+
+		

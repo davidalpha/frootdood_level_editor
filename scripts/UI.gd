@@ -5,7 +5,7 @@ extends Control
 # var a = 2
 # var b = "text"
 var mode = "UI"
-var object_selected
+var object_selected = "none"
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -25,7 +25,7 @@ func _on_edit_pressed():
 		mode = "edit"
 		$Objects.visible = false
 		$Tools.visible = false
-		$Mode_container/Mode_label.text = mode + " mode (press B to disable)"
+		$Mode_container/Mode_label.text = mode + " mode (press B to disable) - Object selected: " + object_selected
 
 func _process(_delta: float) -> void:
 	if Input.is_action_just_released("edit_toggle"):
