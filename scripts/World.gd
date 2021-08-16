@@ -40,10 +40,9 @@ func _ready():
 	
 	for i in range (data_tool.get_vertex_count()):
 		var vertex = data_tool.get_vertex(i)
-		var pixel_x = int((vertex.x+ 199)/2)
-		var pixel_y = int((vertex.z+ 199)/2)
-		vertex.y = (height_map.get_pixel(pixel_x, pixel_y).r * steepness) - 10
-		
+		var pixel_x = int((vertex.x+ 1023)/2)
+		var pixel_y = int((vertex.z+ 1023)/2)
+		vertex.y = (height_map.get_pixel(pixel_x, pixel_y).r * steepness)
 		
 		data_tool.set_vertex(i, vertex)
 		

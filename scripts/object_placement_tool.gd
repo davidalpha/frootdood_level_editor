@@ -1,4 +1,3 @@
-tool
 extends Spatial
 
 const ray_length = 1000
@@ -22,7 +21,7 @@ onready var terrain = get_node("/root/level_editor/terrain")
 
 func _ready():
 	brush_sprite = brush_sprite_scene.instance()
-	terrain.add_child(brush_sprite)
+	add_child(brush_sprite)
 	brush_basis_transform = brush_sprite.transform.basis
 
 func place(object):
