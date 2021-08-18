@@ -7,6 +7,7 @@ var rock1 = preload("res://scenes/static_objects/rock1.tscn")
 var rock2 = preload("res://scenes/static_objects/rock2.tscn")
 var rock3 = preload("res://scenes/static_objects/rock3.tscn")
 var grass = preload("res://scenes/static_objects/grass.tscn")
+var cube3x3 = preload("res://scenes/static_objects/cube3.tscn")
 var brush_sprite_scene = preload("res://scenes/Brush.tscn")
 
 var rocks_arr = [rock1, rock2, rock3]
@@ -24,7 +25,7 @@ func _ready():
 	add_child(brush_sprite)
 	brush_basis_transform = brush_sprite.transform.basis
 
-func place(object):
+func place(object, scaling, rotating, match_terrain):
 	var object_instance = object.instance()
 	var object_norm = object_instance.transform.basis.y
 	object_instance.transform.origin = Vector3(intersect_pos)
@@ -36,14 +37,17 @@ func place(object):
 	axis = axis.normalized()
 	
 	# rotate along Y axis randomly
-	object_instance.transform.basis = object_instance.transform.basis.rotated(Vector3(0.0,1.0,0.0), (PI*rand_range(0,2)))
+	if rotating:
+		object_instance.transform.basis = object_instance.transform.basis.rotated(Vector3(0.0,1.0,0.0), (PI*rand_range(0,2)))
 	
 	# Rotate object to match terrain
-	if !is_nan(alpha) and axis.is_normalized():
-		object_instance.transform.basis = object_instance.transform.basis.rotated(axis, alpha)
+	if match_terrain:
+		if !is_nan(alpha) and axis.is_normalized():
+			object_instance.transform.basis = object_instance.transform.basis.rotated(axis, alpha)
 	
 	# scale randomly
-	object_instance.transform.basis = object_instance.transform.basis.scaled(Vector3(rand_range(.5, 1.5),rand_range(.5, 1.5),rand_range(.5, 1.5)))
+	if scaling:
+		object_instance.transform.basis = object_instance.transform.basis.scaled(Vector3(rand_range(.5, 1.5),rand_range(.5, 1.5),rand_range(.5, 1.5)))
 	
 	
 	terrain.add_child(object_instance)
@@ -72,12 +76,16 @@ func _input(event):
 				if object_type == "rocks":
 					rocks_arr.shuffle()
 					var rock = rocks_arr[0]
-					place(rock)
+					place(rock, 1,1,1)
 					
 					
 				if object_type == "grass":
-					place(grass)
+					place(grass, 1,1,1)
+				
+				if object_type == "cube3x3":
+					place(cube3x3, 0,0,0)
 					
+				
 	if event is InputEventMouseButton and event.pressed and event.button_index == 2:
 		var UI = get_node("/root/level_editor/UI")
 		var mode = UI.mode

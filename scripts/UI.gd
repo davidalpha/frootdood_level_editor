@@ -37,6 +37,9 @@ func _on_Rocks_pressed():
 	
 func _on_Grass_pressed():
 	object_selected = "grass"
+	
+func _on_Cube3x3_pressed():
+	object_selected = "cube3x3"
 
 func _on_save_pressed():
 	var terrain = get_node("/root/level_editor/")
@@ -54,6 +57,5 @@ func _on_Levels_file_selected(path):
 	print(loaded_level)
 	get_node("/root/level_editor/").add_child(level);
 	print(level)
-
 
 

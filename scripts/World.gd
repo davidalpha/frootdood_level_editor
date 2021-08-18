@@ -6,10 +6,10 @@ export var noise_octaves = 3
 export var noise_lacunarity = 2.0
 export var noise_seed = 1234
 export var noise_persistence = 0.5
-export var size_depth = 400
-export var size_width = 400
-export var subdivide = 100
-export var steepness = 30
+export var size_depth = 1024
+export var size_width = 1024
+export var subdivide = 400
+export var steepness = 40
 export var height_map : Image
 
 
@@ -40,8 +40,8 @@ func _ready():
 	
 	for i in range (data_tool.get_vertex_count()):
 		var vertex = data_tool.get_vertex(i)
-		var pixel_x = int((vertex.x+ 1023)/2)
-		var pixel_y = int((vertex.z+ 1023)/2)
+		var pixel_x = int((vertex.x + (size_depth-1))/2)
+		var pixel_y = int((vertex.z + (size_width-1))/2)
 		vertex.y = (height_map.get_pixel(pixel_x, pixel_y).r * steepness)
 		
 		data_tool.set_vertex(i, vertex)
@@ -59,7 +59,7 @@ func _ready():
 	
 	mesh_instance.mesh = surface_tool.commit()
 	mesh_instance.create_trimesh_collision()
-	mesh_instance.set_surface_material(0, load("res://shaders/terrain_shader.tres"))
+	mesh_instance.set_surface_material(0, load("res://shaders/terrain_spatial.tres"))
 	mesh_instance.name = "world_map"
 	$terrain.add_child(mesh_instance)
 	_recursively_set_owner($terrain, $terrain)

@@ -2,7 +2,7 @@
 
 [resource]
 params_specular_mode = 4
-albedo_color = Color( 0.337255, 0.4, 0.294118, 1 )
+albedo_color = Color( 1, 0.972549, 0.54902, 1 )
 metallic = 0.5
 metallic_specular = 0.0
 roughness = 0.63
