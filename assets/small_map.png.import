@@ -1,0 +1,13 @@
+[remap]
+
+importer="image"
+type="Image"
+path="res://.import/small_map.png-a814e096951cd40afdac0023a6ac7f0c.image"
+
+[deps]
+
+source_file="res://assets/small_map.png"
+dest_files=[ "res://.import/small_map.png-a814e096951cd40afdac0023a6ac7f0c.image" ]
+
+[params]
+

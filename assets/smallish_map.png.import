@@ -1,0 +1,13 @@
+[remap]
+
+importer="image"
+type="Image"
+path="res://.import/smallish_map.png-1fb8b95e7af0249a8cea164347d9b942.image"
+
+[deps]
+
+source_file="res://assets/smallish_map.png"
+dest_files=[ "res://.import/smallish_map.png-1fb8b95e7af0249a8cea164347d9b942.image" ]
+
+[params]
+

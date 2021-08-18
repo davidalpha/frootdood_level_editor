@@ -23,10 +23,8 @@ font_data = ExtResource( 13 )
 
 [node name="level_editor" type="Node"]
 script = ExtResource( 3 )
-size_depth = 800
-size_width = 800
-subdivide = 200
 height_map = ExtResource( 4 )
+smoothness = 0.5
 
 [node name="world_environment" type="WorldEnvironment" parent="."]
 environment = SubResource( 2 )
@@ -58,9 +56,8 @@ margin_right = 895.0
 margin_bottom = 527.0
 window_title = "Open a File"
 mode = 0
-current_dir = "res://saved_levels"
 current_file = "level1627996597.tscn"
-current_path = "res://saved_levels/level1627996597.tscn"
+current_path = "res://level1627996597.tscn"
 __meta__ = {
 "_edit_use_anchors_": false
 }

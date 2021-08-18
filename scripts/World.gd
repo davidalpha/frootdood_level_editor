@@ -1,33 +1,25 @@
 tool
 extends Node
 
-export var noise_period = 64
-export var noise_octaves = 3
-export var noise_lacunarity = 2.0
-export var noise_seed = 1234
-export var noise_persistence = 0.5
-export var size_depth = 1024
-export var size_width = 1024
-export var subdivide = 400
-export var steepness = 40
+#export var subdivide = 1
+
+var steepness = 30
 export var height_map : Image
+export var smoothness : float
 
-
+var image_height
+var image_width
 
 func _ready():
 	height_map.lock()
-
-#	var noise = OpenSimplexNoise.new()
-#	noise.period = noise_period
-#	noise.octaves = noise_octaves
-#	noise.lacunarity = noise_lacunarity
-#	noise.seed = noise_seed
-#	noise.persistence = noise_persistence
+	image_height = height_map.get_height()
+	image_width = height_map.get_width()
 	
 	var plane_mesh = PlaneMesh.new()
-	plane_mesh.size = Vector2(size_depth,size_width)
-	plane_mesh.subdivide_depth = subdivide
-	plane_mesh.subdivide_width = subdivide
+	plane_mesh.size = Vector2(image_height, image_width)
+	
+	plane_mesh.subdivide_depth = (image_height*smoothness)
+	plane_mesh.subdivide_width = (image_width*smoothness)
 	
 	var surface_tool = SurfaceTool.new()
 	surface_tool.create_from(plane_mesh, 0)	
@@ -37,12 +29,29 @@ func _ready():
 	var data_tool = MeshDataTool.new()
 	
 	data_tool.create_from_surface(array_plane, 0)
-	
+	print(data_tool.get_vertex_count())
 	for i in range (data_tool.get_vertex_count()):
 		var vertex = data_tool.get_vertex(i)
-		var pixel_x = int((vertex.x + (size_depth-1))/2)
-		var pixel_y = int((vertex.z + (size_width-1))/2)
-		vertex.y = (height_map.get_pixel(pixel_x, pixel_y).r * steepness)
+		
+#		# DEBUG DRAW
+#		var debug_vertex = ImmediateGeometry.new()
+#		debug_vertex.begin(Mesh.PRIMITIVE_LINES)
+#		debug_vertex.set_color(Color.red)
+#		debug_vertex.add_vertex(vertex)
+#		# DEBUG
+		
+		var pixel_x_float = round(vertex.x + (image_width/2))
+		var pixel_x = int(pixel_x_float)
+		var pixel_y_float = round(vertex.z + (image_height/2))
+		var pixel_y = int(pixel_y_float)
+		var pixel = height_map.get_pixel(pixel_x, pixel_y)
+		vertex.y = pixel.r * steepness
+		
+#		# DEBUG
+#		debug_vertex.add_vertex(vertex)
+#		debug_vertex.end()
+#		self.add_child(debug_vertex)
+#		# DEBUG
 		
 		data_tool.set_vertex(i, vertex)
 		
