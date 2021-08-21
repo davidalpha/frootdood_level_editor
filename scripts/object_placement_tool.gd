@@ -8,6 +8,7 @@ var rock2 = preload("res://scenes/static_objects/rock2.tscn")
 var rock3 = preload("res://scenes/static_objects/rock3.tscn")
 var grass = preload("res://scenes/static_objects/grass.tscn")
 var cube3x3 = preload("res://scenes/static_objects/cube3.tscn")
+var palm_tree = preload("res://scenes/static_objects/palmtree_straight.tscn")
 var brush_sprite_scene = preload("res://scenes/Brush.tscn")
 
 var rocks_arr = [rock1, rock2, rock3]
@@ -25,7 +26,9 @@ func _ready():
 	add_child(brush_sprite)
 	brush_basis_transform = brush_sprite.transform.basis
 
-func place(object, scaling, rotating, match_terrain):
+# places object and modifies the object randomly based on the options. scaling_min set to 0 disables all scaling, other values set to 0 will also disable them.
+
+func place(object, scaling_min, scaling_max, rotating, match_terrain):
 	var object_instance = object.instance()
 	var object_norm = object_instance.transform.basis.y
 	object_instance.transform.origin = Vector3(intersect_pos)
@@ -46,8 +49,8 @@ func place(object, scaling, rotating, match_terrain):
 			object_instance.transform.basis = object_instance.transform.basis.rotated(axis, alpha)
 	
 	# scale randomly
-	if scaling:
-		object_instance.transform.basis = object_instance.transform.basis.scaled(Vector3(rand_range(.5, 1.5),rand_range(.5, 1.5),rand_range(.5, 1.5)))
+	if scaling_min:
+		object_instance.transform.basis = object_instance.transform.basis.scaled(Vector3(rand_range((scaling_min), (scaling_max)),rand_range((scaling_min), (scaling_max)),rand_range((scaling_min), (scaling_max))))
 	
 	
 	terrain.add_child(object_instance)
@@ -76,15 +79,19 @@ func _input(event):
 				if object_type == "rocks":
 					rocks_arr.shuffle()
 					var rock = rocks_arr[0]
-					place(rock, 1,1,1)
+					place(rock, 0.5,1.5,1,1)
 					
 					
 				if object_type == "grass":
-					place(grass, 1,1,1)
+					place(grass, 0.5,1.5,1,1)
 				
 				if object_type == "cube3x3":
-					place(cube3x3, 0,0,0)
+					place(cube3x3, 0,2,0,0)
 					
+				if object_type == "palm_tree":
+					place(palm_tree, 1,2,1,0)
+					
+# RMB is delete. Delete the collided object and its parent if its not terrain.
 				
 	if event is InputEventMouseButton and event.pressed and event.button_index == 2:
 		var UI = get_node("/root/level_editor/UI")
@@ -97,9 +104,12 @@ func _input(event):
 			var intersection = space_state.intersect_ray(from, to)
 			if intersection:
 				var object_hit = intersection['collider']
+				var parent_node = object_hit.owner
+				print(parent_node)
+				print(object_hit.name)
 				
 				if object_hit.get_parent().name != "world_map":
-					object_hit.get_parent().queue_free()
+					parent_node.queue_free()
 				 
 func _process(delta):
 	TIME += delta

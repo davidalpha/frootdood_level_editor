@@ -40,6 +40,9 @@ func _on_Grass_pressed():
 	
 func _on_Cube3x3_pressed():
 	object_selected = "cube3x3"
+	
+func _on_palmtree_pressed():
+	object_selected = "palm_tree"
 
 func _on_save_pressed():
 	var terrain = get_node("/root/level_editor/")
