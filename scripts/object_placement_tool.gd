@@ -8,7 +8,9 @@ var rock2 = preload("res://scenes/static_objects/rock2.tscn")
 var rock3 = preload("res://scenes/static_objects/rock3.tscn")
 var grass = preload("res://scenes/static_objects/grass.tscn")
 var cube3x3 = preload("res://scenes/static_objects/cube3.tscn")
-var palm_tree = preload("res://scenes/static_objects/palmtree_straight.tscn")
+var palm_tree_straight = preload("res://scenes/static_objects/palmtree_straight.tscn")
+var palm_tree_curly = preload("res://scenes/static_objects/palmtree_curly.tscn")
+var banana = preload("res://scenes/static_objects/banana_long.tscn")
 var brush_sprite_scene = preload("res://scenes/Brush.tscn")
 
 var rocks_arr = [rock1, rock2, rock3]
@@ -52,7 +54,7 @@ func place(object, scaling_min, scaling_max, rotating, match_terrain):
 	if scaling_min:
 		object_instance.transform.basis = object_instance.transform.basis.scaled(Vector3(rand_range((scaling_min), (scaling_max)),rand_range((scaling_min), (scaling_max)),rand_range((scaling_min), (scaling_max))))
 	
-	
+	terrain = get_node("/root/level_editor/terrain")
 	terrain.add_child(object_instance)
 	object_instance.set_owner(terrain)
 
@@ -88,8 +90,14 @@ func _input(event):
 				if object_type == "cube3x3":
 					place(cube3x3, 0,2,0,0)
 					
-				if object_type == "palm_tree":
-					place(palm_tree, 1,2,1,0)
+				if object_type == "palm_tree_straight":
+					place(palm_tree_straight, 1,2,1,0)
+					
+				if object_type == "palm_tree_curly":
+					place(palm_tree_curly, 1,1.2,1,0)
+					
+				if object_type == "banana":
+					place(banana, 0,0,1,0)
 					
 # RMB is delete. Delete the collided object and its parent if its not terrain.
 				

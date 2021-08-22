@@ -91,3 +91,4 @@ func _recursively_set_owner(root: Node, owner: Node) -> void:
 	for child in root.get_children():
 		child.owner = owner
 		_recursively_set_owner(child, owner)
+
