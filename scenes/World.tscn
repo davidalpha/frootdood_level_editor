@@ -123,7 +123,7 @@ __meta__ = {
 
 [node name="VBoxContainer" type="VBoxContainer" parent="UI/Objects/TabContainer/Terrain/ScrollContainer"]
 margin_right = 122.0
-margin_bottom = 140.0
+margin_bottom = 164.0
 
 [node name="Rocks" type="Button" parent="UI/Objects/TabContainer/Terrain/ScrollContainer/VBoxContainer"]
 margin_right = 122.0
@@ -142,7 +142,7 @@ margin_right = 122.0
 margin_bottom = 68.0
 text = "Cube3x3"
 
-[node name="palmtree curly" type="Button" parent="UI/Objects/TabContainer/Terrain/ScrollContainer/VBoxContainer"]
+[node name="Palmtree curly" type="Button" parent="UI/Objects/TabContainer/Terrain/ScrollContainer/VBoxContainer"]
 margin_top = 72.0
 margin_right = 122.0
 margin_bottom = 92.0
@@ -151,7 +151,7 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="palmtree straight" type="Button" parent="UI/Objects/TabContainer/Terrain/ScrollContainer/VBoxContainer"]
+[node name="Palmtree straight" type="Button" parent="UI/Objects/TabContainer/Terrain/ScrollContainer/VBoxContainer"]
 margin_top = 96.0
 margin_right = 122.0
 margin_bottom = 116.0
@@ -162,6 +162,12 @@ margin_top = 120.0
 margin_right = 122.0
 margin_bottom = 140.0
 text = "Banana"
+
+[node name="Statue lanky" type="Button" parent="UI/Objects/TabContainer/Terrain/ScrollContainer/VBoxContainer"]
+margin_top = 144.0
+margin_right = 122.0
+margin_bottom = 164.0
+text = "Statue lanky"
 
 [node name="Critters" type="Tabs" parent="UI/Objects/TabContainer"]
 visible = false
@@ -259,9 +265,10 @@ __meta__ = {
 [connection signal="pressed" from="UI/Objects/TabContainer/Terrain/ScrollContainer/VBoxContainer/Rocks" to="UI" method="_on_Rocks_pressed"]
 [connection signal="pressed" from="UI/Objects/TabContainer/Terrain/ScrollContainer/VBoxContainer/Grass" to="UI" method="_on_Grass_pressed"]
 [connection signal="pressed" from="UI/Objects/TabContainer/Terrain/ScrollContainer/VBoxContainer/Cube3x3" to="UI" method="_on_Cube3x3_pressed"]
-[connection signal="pressed" from="UI/Objects/TabContainer/Terrain/ScrollContainer/VBoxContainer/palmtree curly" to="UI" method="_on_palmtree_curly_pressed"]
-[connection signal="pressed" from="UI/Objects/TabContainer/Terrain/ScrollContainer/VBoxContainer/palmtree straight" to="UI" method="_on_palmtree_straight_pressed"]
+[connection signal="pressed" from="UI/Objects/TabContainer/Terrain/ScrollContainer/VBoxContainer/Palmtree curly" to="UI" method="_on_palmtree_curly_pressed"]
+[connection signal="pressed" from="UI/Objects/TabContainer/Terrain/ScrollContainer/VBoxContainer/Palmtree straight" to="UI" method="_on_palmtree_straight_pressed"]
 [connection signal="pressed" from="UI/Objects/TabContainer/Terrain/ScrollContainer/VBoxContainer/Banana" to="UI" method="_on_Banana_pressed"]
+[connection signal="pressed" from="UI/Objects/TabContainer/Terrain/ScrollContainer/VBoxContainer/Statue lanky" to="UI" method="_on_Statue_lanky_pressed"]
 [connection signal="pressed" from="UI/Tools/HBoxContainer/edit" to="UI" method="_on_edit_pressed"]
 [connection signal="pressed" from="UI/Tools/HBoxContainer/save" to="UI" method="_on_save_pressed"]
 [connection signal="pressed" from="UI/Tools/HBoxContainer/load" to="UI" method="_on_load_pressed"]

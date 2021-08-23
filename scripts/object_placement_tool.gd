@@ -10,6 +10,7 @@ var grass = preload("res://scenes/static_objects/grass.tscn")
 var cube3x3 = preload("res://scenes/static_objects/cube3.tscn")
 var palm_tree_straight = preload("res://scenes/static_objects/palmtree_straight.tscn")
 var palm_tree_curly = preload("res://scenes/static_objects/palmtree_curly.tscn")
+var statue_lanky = preload("res://scenes/static_objects/statue_lanky_diamond.tscn")
 var banana = preload("res://scenes/static_objects/banana_long.tscn")
 var brush_sprite_scene = preload("res://scenes/Brush.tscn")
 
@@ -29,8 +30,9 @@ func _ready():
 	brush_basis_transform = brush_sprite.transform.basis
 
 # places object and modifies the object randomly based on the options. scaling_min set to 0 disables all scaling, other values set to 0 will also disable them.
+# object, scaling_min, scaling_max, rotating_y, rotating_z, height, match_terrain
 
-func place(object, scaling_min, scaling_max, rotating, match_terrain):
+func place(object, scaling_min, scaling_max, rotating_y, rotating_z, height, match_terrain):
 	var object_instance = object.instance()
 	var object_norm = object_instance.transform.basis.y
 	object_instance.transform.origin = Vector3(intersect_pos)
@@ -42,8 +44,11 @@ func place(object, scaling_min, scaling_max, rotating, match_terrain):
 	axis = axis.normalized()
 	
 	# rotate along Y axis randomly
-	if rotating:
+	if rotating_y:
 		object_instance.transform.basis = object_instance.transform.basis.rotated(Vector3(0.0,1.0,0.0), (PI*rand_range(0,2)))
+		
+	if rotating_z:
+		object_instance.rotate_z(rand_range(-PI/8, PI/8))
 	
 	# Rotate object to match terrain
 	if match_terrain:
@@ -53,6 +58,9 @@ func place(object, scaling_min, scaling_max, rotating, match_terrain):
 	# scale randomly
 	if scaling_min:
 		object_instance.transform.basis = object_instance.transform.basis.scaled(Vector3(rand_range((scaling_min), (scaling_max)),rand_range((scaling_min), (scaling_max)),rand_range((scaling_min), (scaling_max))))
+	
+	if height:
+		object_instance.transform.origin.y = object_instance.transform.origin.y + height
 	
 	terrain = get_node("/root/level_editor/terrain")
 	terrain.add_child(object_instance)
@@ -76,28 +84,32 @@ func _input(event):
 				terrain_normal = intersection['normal']
 				terrain_normal = terrain_normal.normalized()
 				
+			#placable objects. parameters are object, scaling_min, scaling_max, rotating_y, rotating_z, height, match_terrain
 				
 				object_type = UI.object_selected
 				if object_type == "rocks":
 					rocks_arr.shuffle()
 					var rock = rocks_arr[0]
-					place(rock, 0.5,1.5,1,1)
+					place(rock, 0.5,1.5,1,0,0,1)
 					
 					
 				if object_type == "grass":
-					place(grass, 0.5,1.5,1,1)
+					place(grass, 0.5,1.5,1,0,0,1)
 				
 				if object_type == "cube3x3":
-					place(cube3x3, 0,2,0,0)
+					place(cube3x3, 0,2,0,0,0,0)
 					
 				if object_type == "palm_tree_straight":
-					place(palm_tree_straight, 1,2,1,0)
+					place(palm_tree_straight, 1,2,1,0,0,0)
 					
 				if object_type == "palm_tree_curly":
-					place(palm_tree_curly, 1,1.2,1,0)
+					place(palm_tree_curly, 1,1.2,1,0,0,0)
 					
 				if object_type == "banana":
-					place(banana, 0,0,1,0)
+					place(banana, 0,0,1,0,0,0)
+					
+				if object_type == "statue_lanky":
+					place(statue_lanky, 1,3,1,1,-2,1)
 					
 # RMB is delete. Delete the collided object and its parent if its not terrain.
 				

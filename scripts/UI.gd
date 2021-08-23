@@ -50,6 +50,8 @@ func _on_palmtree_curly_pressed():
 func _on_Banana_pressed():
 	object_selected = "banana"
 
+func _on_Statue_lanky_pressed():
+	object_selected = "statue_lanky"
 
 func _on_save_pressed():
 	var terrain = get_node("/root/level_editor/")
@@ -67,6 +69,9 @@ func _on_Levels_file_selected(path):
 	print(loaded_level)
 	get_node("/root/level_editor/").add_child(level);
 	print(level)
+
+
+
 
 
 
